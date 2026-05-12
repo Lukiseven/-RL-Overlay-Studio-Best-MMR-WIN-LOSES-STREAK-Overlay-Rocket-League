@@ -1,0 +1,43 @@
+LICENCE PROPRIÉTAIRE — RL OVERLAY STUDIO
+
+Copyright © 2026 Luki7 / Eraclesss / Julianout.
+Tous droits réservés.
+
+Cette application, son code source, ses fichiers, son interface, ses visuels,
+ses textes, ses logos, ses modules, ses systèmes de détection, ses overlays,
+ses scripts et tous les éléments associés sont protégés par les droits de
+propriété intellectuelle.
+
+UTILISATION AUTORISÉE
+L’application peut être utilisée uniquement par les personnes autorisées par
+le ou les propriétaires du projet RL Overlay Studio.
+
+INTERDICTIONS
+Sauf autorisation écrite préalable du ou des propriétaires, il est strictement
+interdit de :
+
+- vendre, revendre, louer ou commercialiser cette application ;
+- copier, reproduire, redistribuer ou republier cette application ;
+- modifier, adapter, extraire ou réutiliser tout ou partie du code ;
+- créer une version dérivée ou concurrente basée sur cette application ;
+- supprimer ou modifier les mentions d’auteur, de version ou de propriété ;
+- partager l’application dans un cadre commercial non autorisé ;
+- intégrer tout ou partie de cette application dans un autre projet ;
+- utiliser les assets, designs, overlays, textes ou éléments visuels sans accord ;
+- contourner les systèmes de protection, de mise à jour ou de configuration ;
+- effectuer de la rétro-ingénierie, décompilation ou extraction non autorisée.
+
+PROPRIÉTÉ
+L’application reste la propriété exclusive de ses propriétaires.
+Aucune cession de droits n’est accordée par la mise à disposition du fichier.
+
+ABSENCE DE GARANTIE
+L’application est fournie en l’état, sans garantie de fonctionnement permanent,
+de compatibilité, de disponibilité ou d’absence d’erreurs.
+
+AUTORISATION
+Toute demande d’utilisation, de reproduction, de modification ou de distribution
+doit être validée par écrit par le ou les propriétaires de RL Overlay Studio.
+
+En utilisant cette application, l’utilisateur reconnaît avoir lu et accepté
+les conditions de cette licence propriétaire.

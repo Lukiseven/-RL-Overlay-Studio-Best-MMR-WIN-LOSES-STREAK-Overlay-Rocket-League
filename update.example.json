@@ -1,0 +1,11 @@
+{
+  "version": "Beta 3.9",
+  "download_url": "https://github.com/Lukiseven/RL-Overlay-Studio/releases/download/Beta-3.9/Overlay_Studio_API_version_Beta_3.9.zip",
+  "sha256": "COLLE_ICI_LE_SHA256_DU_ZIP",
+  "mandatory": false,
+  "changelog": [
+    "Exemple : correction API RLS",
+    "Exemple : amélioration overlay",
+    "Exemple : optimisation dashboard"
+  ]
+}
