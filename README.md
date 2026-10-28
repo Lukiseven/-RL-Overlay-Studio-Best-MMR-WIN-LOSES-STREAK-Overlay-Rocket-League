@@ -148,13 +148,13 @@ The following **seven static presentations** retain the corrected radial-button 
 
 | | |
 | :---: | :---: |
-| ![Dock — Actions](media/readme/dock_actions.svg) | ![Dock — Overlay](media/readme/dock_overlay.svg) |
-| ![Dock — Appearance](media/readme/dock_appearance.svg) | ![Dock — Players MMR](media/readme/dock_players.svg) |
-| ![Dock — Sessions](media/readme/dock_sessions.svg) | ![Dock — Premium unavailable](media/readme/dock_premium_off.svg) |
+| ![Dock — Actions](media/readme/dock_actions.png) | ![Dock — Overlay](media/readme/dock_overlay.png) |
+| ![Dock — Appearance](media/readme/dock_appearance.png) | ![Dock — Players MMR](media/readme/dock_players.png) |
+| ![Dock — Sessions](media/readme/dock_sessions.png) | ![Dock — Premium unavailable](media/readme/dock_premium_off.png) |
 
 **Dock closed**
 
-![Dock — collapsed](media/readme/dock_closed.svg)
+![Dock — collapsed](media/readme/dock_closed.png)
 
 The category views are **Actions, Overlay, Appearance, Players MMR and Sessions**, plus the Premium-unavailable and collapsed presentations. No animated GIF, interactive demo or external gallery is required to view them.
 
