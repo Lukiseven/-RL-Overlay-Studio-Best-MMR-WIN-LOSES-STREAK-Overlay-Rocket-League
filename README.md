@@ -16,7 +16,7 @@
 </div>
 
 <p align="center">
-  <img src="media/hero_real_ui.jpg" alt="RL Overlay Studio real interface and overlays" width="100%" />
+  <img src="media/hero_real_ui.webp" alt="RL Overlay Studio real interface and overlays" width="100%" />
 </p>
 
 > **Public audit repository.** The repository exposes the non-sensitive structure and security-relevant portions of RL Overlay Studio so users can inspect how the application behaves. Proprietary MMR/ranking logic, credentials, private endpoints, original UI templates and raw visual/font assets are intentionally excluded. See [`AUDIT_SCOPE.md`](AUDIT_SCOPE.md).
