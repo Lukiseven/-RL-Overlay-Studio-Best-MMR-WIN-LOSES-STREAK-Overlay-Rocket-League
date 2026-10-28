@@ -15,9 +15,7 @@
 
 </div>
 
-<p align="center">
-  <img src="media/previews/hero_recreated.svg" alt="Recreated transparent RL Overlay Studio Beta 8.46 desktop and overlay illustrations" width="100%" />
-</p>
+<p align="center"><a href="https://lukiseven.github.io/RL-Overlay-Studio/showcase.html"><strong>▶ VIEW AUTHENTIC BETA 8.46 INTERACTIVE DEMOS & ANIMATIONS</strong></a></p>
 
 > **Public audit repository.** The repository exposes the non-sensitive structure and security-relevant portions of RL Overlay Studio so users can inspect how the application behaves. Proprietary MMR/ranking logic, credentials, private endpoints, original UI templates and raw visual/font assets are intentionally excluded. See [`AUDIT_SCOPE.md`](AUDIT_SCOPE.md).
 
@@ -85,103 +83,24 @@ Every intentionally removed code block is marked with **`[PUBLIC AUDIT REDACTION
 
 ---
 
-# 🎨 Recreated transparent previews and interactive demos
+# 🎬 Authentic Beta 8.46 Chromium presentations
 
-The images below are **new, original vector illustrations** reconstructed from the documented features and layout of Beta 8.46. They are not background-removed screenshots or pixel-exact copies of the application. Each SVG has a **transparent canvas** and the UI panels themselves are drawn as separate elements. Click a preview to explore **interactive, state-switchable HTML demonstrations** on GitHub Pages.
+[**▶ OPEN THE REAL INTERACTIVE GALLERY (GitHub Pages)**](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html)
 
-> The demos use **example data only** and recreate UI states in standalone HTML. They do not connect to Rocket League, the private MMR implementation or the production backend; they do not contain API credentials, private endpoints, the original font bundle, original image assets or production overlay templates.
+These presentations use **46 transparent PNG screenshots** and **12 animated WebP sequences**, captured from the original Beta 8.46 HTML/CSS/JS overlay renderer in Chromium. Unlike the previous illustrations, the streamer overlay, Premium Rank Tower, Players MMR and Showmatch visuals are based on genuine application templates. The Desktop UI and radial Dock are faithful HTML transcriptions of the source PyQt6 structure, **not native Windows screenshots**.
 
-<p align="center">
-  <a href="https://lukiseven.github.io/RL-Overlay-Studio/"><b>🌐 OPEN THE LIVE DEMO GALLERY</b></a>
-</p>
+**Explore individual features:**
 
-## 🖥️ Main application
+- [Desktop application · five tabs](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=application_ui#presenter)
+- [Classic Banner · Top Rank, streak, popups, rank-up/down](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=overlay_banner#presenter)
+- [Compact Vertical](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=overlay_vertical#presenter)
+- [Compact Horizontal](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=overlay_horizontal#presenter)
+- [Premium Rank Tower · live ring animation](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=premium_rank_tower#presenter)
+- [Players MMR · placement and player-leave states](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=players_mmr#presenter)
+- [Showmatch · BO5/BO7 and completed series](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=showmatch#presenter)
+- [In-Game Dock · five menu categories, Premium state](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=ingame_dock#presenter)
 
-<p align="center">
-  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=application_ui">
-    <img src="media/previews/application_ui_recreated.svg" alt="RL Overlay Studio application" width="900" />
-  </a><br>
-  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=application_ui"><b>Open Live HTML Demo</b></a></sub>
-</p>
-
-## 🎨 Classic Banner
-
-<p align="center">
-  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_banner">
-    <img src="media/previews/overlay_banner_recreated.svg" alt="Classic banner overlay" width="860" />
-  </a><br>
-  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_banner"><b>Open Live HTML Demo</b></a></sub>
-</p>
-
-## Vertical Compact
-
-<p align="center">
-  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_vertical">
-    <img src="media/previews/overlay_vertical_recreated.svg" alt="Vertical compact overlay" width="420" />
-  </a><br>
-  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_vertical"><b>Open Live HTML Demo</b></a></sub>
-</p>
-
-## Horizontal Compact
-
-<p align="center">
-  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_horizontal">
-    <img src="media/previews/overlay_horizontal_recreated.svg" alt="Horizontal compact overlay" width="700" />
-  </a><br>
-  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_horizontal"><b>Open Live HTML Demo</b></a></sub>
-</p>
-
-## 👑 Premium Rank Tower
-
-<p align="center">
-  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=premium_rank_tower">
-    <img src="media/previews/premium_rank_tower_recreated.svg" alt="Premium Rank Tower" width="420" />
-  </a><br>
-  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=premium_rank_tower"><b>Open Live HTML Demo</b></a></sub>
-</p>
-
-## 👥 Players MMR
-
-<p align="center">
-  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=players_mmr">
-    <img src="media/previews/players_mmr_recreated.svg" alt="Players MMR" width="700" />
-  </a><br>
-  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=players_mmr"><b>Open Live HTML Demo</b></a></sub>
-</p>
-
-## ⚔️ Showmatch
-
-<p align="center">
-  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=showmatch">
-    <img src="media/previews/showmatch_recreated.svg" alt="Showmatch overlay" width="780" />
-  </a><br>
-  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=showmatch"><b>Open Live HTML Demo</b></a></sub>
-</p>
-
-## 🎮 In‑Game Dock
-
-<p align="center">
-  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=ingame_dock">
-    <img src="media/previews/ingame_dock_recreated.svg" alt="In-game radial dock" width="850" />
-  </a><br>
-  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=ingame_dock"><b>Open Live HTML Demo</b></a></sub>
-</p>
-
----
-
-## 🧩 States represented in the interactive demos
-
-The gallery lets you switch through the Beta 8.46 presentation features instead of only watching a static image:
-
-- **Stream overlays:** Classic Banner, Vertical Compact, Horizontal Compact and Premium Rank Tower.
-- **Rank/MMR states:** rank up / rank down, unranked/unknown MMR, Supersonic Legend, Top 1–5 (red), Top 6–100 (gold), Top 101–200 (silver), Top Rank hidden, and positionable MMR popup examples.
-- **Match status:** win streak / loss streak, Freeplay, private match and direct In-Game contexts.
-- **Players MMR:** Blue/Orange teams, platform hints, rank/division/MMR, left/right placement, player leaving and overlay hidden.
-- **Showmatch:** BO3 / BO5 / BO7 / BO9, match scores and series winner states.
-- **In-Game Dock:** expanded/collapsed, Premium on/off, Actions / Overlay / Appearance / Players / Sessions sections; retraction is off by default.
-- **Desktop app:** Dashboard, OBS/TikTok overlays, Sessions, Overlay Options and Settings; status/diagnostics, GitHub update flow and Discord connection are summarized.
-
-All on-page metrics, ranks, sample names, score values and interactions are **fictional demonstrations**, not live game data. Recreated imagery may simplify the look of the production UI.
+The gallery has functional mode/state selectors, automatic playback, replay, animation on/off and transparent/checkerboard preview backgrounds. It is presentation-only: all sample metrics are fictional; no game connection, private MMR logic, production templates or API credentials are published. **The GitHub Pages loader assembles static media fragments on the client** to avoid oversized GitHub API uploads and missing relative asset paths.
 
 ---
 
