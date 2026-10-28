@@ -44,6 +44,12 @@ jobs:
                   assert raw[:8] == b'\x89PNG\r\n\x1a\n', name
                   (dest/name).write_bytes(raw)
                   saved.append(str(dest/name))
+          # A full overview combines the original desktop UI and stream overlay in one image.
+          overview = re.search(r'<img src="(data:image/png;base64,[^"]+)" class="hero-img"', html)
+          assert overview, 'Main application overview not found'
+          raw_hero = base64.b64decode(overview.group(1).split(',', 1)[1], validate=True)
+          assert raw_hero[:8] == b'\\x89PNG\\r\\n\\x1a\\n'
+          (dest/'application_overview.png').write_bytes(raw_hero)
           assert len(saved) == 33, f'Unexpected exported count: {len(saved)}'
           print(f'Exported {len(saved)} source-derived static PNG screenshots')
           PY
