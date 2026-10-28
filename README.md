@@ -11,12 +11,12 @@
 ![Python](https://img.shields.io/badge/Python-PyQt6-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Audit Source](https://img.shields.io/badge/source-public%20audit-22C55E?style=for-the-badge)
 
-[**⬇️ Latest Release**](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) · [**💬 Discord**](https://discord.gg/QMTppqyMW)
+[**⬇️ Latest Release**](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) · [**🌐 Live Demos**](https://lukiseven.github.io/RL-Overlay-Studio/) · [**💬 Discord**](https://discord.gg/Qed73c5kd9)
 
 </div>
 
 <p align="center">
-  <img src="media/hero_real_ui.png" alt="RL Overlay Studio real interface and overlays" width="100%" />
+  <img src="media/hero_real_ui.jpg" alt="RL Overlay Studio real interface and overlays" width="100%" />
 </p>
 
 > **Public audit repository.** The repository exposes the non-sensitive structure and security-relevant portions of RL Overlay Studio so users can inspect how the application behaves. Proprietary MMR/ranking logic, credentials, private endpoints, original UI templates and raw visual/font assets are intentionally excluded. See [`AUDIT_SCOPE.md`](AUDIT_SCOPE.md).
@@ -87,78 +87,84 @@ Every intentionally removed code block is marked with **`[PUBLIC AUDIT REDACTION
 
 # 🎬 Real application previews
 
-The media below comes from real Beta 8.46 UI/HTML renders. The raw application artwork is **not** included in the repository; only flattened screenshots and H.264 demonstrations are published.
+The previews below are **flattened renders from the real Beta 8.46 interface**, published with transparent backgrounds. Click any preview to open its **automatic HTML presentation** on GitHub Pages.
+
+> The live demos are presentation-only: they do not contain the production MMR implementation, API credentials, private endpoints, original font bundle or reusable production templates.
+
+<p align="center">
+  <a href="https://lukiseven.github.io/RL-Overlay-Studio/"><b>🌐 OPEN THE LIVE DEMO GALLERY</b></a>
+</p>
 
 ## 🖥️ Main application
 
 <p align="center">
-  <a href="media/videos/application_ui.mp4">
+  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=application_ui">
     <img src="media/previews/application_ui.png" alt="RL Overlay Studio application" width="900" />
   </a><br>
-  <sub>▶ <a href="media/videos/application_ui.mp4"><b>Open the H.264 demonstration</b></a></sub>
+  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=application_ui"><b>Open Live HTML Demo</b></a></sub>
 </p>
 
 ## 🎨 Classic Banner
 
 <p align="center">
-  <a href="media/videos/overlay_banner.mp4">
+  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_banner">
     <img src="media/previews/overlay_banner.png" alt="Classic banner overlay" width="860" />
   </a><br>
-  <sub>▶ <a href="media/videos/overlay_banner.mp4"><b>Open animation</b></a></sub>
+  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_banner"><b>Open Live HTML Demo</b></a></sub>
 </p>
 
 ## Vertical Compact
 
 <p align="center">
-  <a href="media/videos/overlay_vertical.mp4">
+  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_vertical">
     <img src="media/previews/overlay_vertical.png" alt="Vertical compact overlay" width="420" />
   </a><br>
-  <sub>▶ <a href="media/videos/overlay_vertical.mp4"><b>Open animation</b></a></sub>
+  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_vertical"><b>Open Live HTML Demo</b></a></sub>
 </p>
 
 ## Horizontal Compact
 
 <p align="center">
-  <a href="media/videos/overlay_horizontal.mp4">
+  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_horizontal">
     <img src="media/previews/overlay_horizontal.png" alt="Horizontal compact overlay" width="700" />
   </a><br>
-  <sub>▶ <a href="media/videos/overlay_horizontal.mp4"><b>Open animation</b></a></sub>
+  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_horizontal"><b>Open Live HTML Demo</b></a></sub>
 </p>
 
 ## 👑 Premium Rank Tower
 
 <p align="center">
-  <a href="media/videos/premium_rank_tower.mp4">
+  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=premium_rank_tower">
     <img src="media/previews/premium_rank_tower.png" alt="Premium Rank Tower" width="420" />
   </a><br>
-  <sub>▶ <a href="media/videos/premium_rank_tower.mp4"><b>Open animation</b></a></sub>
+  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=premium_rank_tower"><b>Open Live HTML Demo</b></a></sub>
 </p>
 
 ## 👥 Players MMR
 
 <p align="center">
-  <a href="media/videos/players_mmr.mp4">
+  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=players_mmr">
     <img src="media/previews/players_mmr.png" alt="Players MMR" width="700" />
   </a><br>
-  <sub>▶ <a href="media/videos/players_mmr.mp4"><b>Open animation</b></a></sub>
+  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=players_mmr"><b>Open Live HTML Demo</b></a></sub>
 </p>
 
 ## ⚔️ Showmatch
 
 <p align="center">
-  <a href="media/videos/showmatch.mp4">
+  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=showmatch">
     <img src="media/previews/showmatch.png" alt="Showmatch overlay" width="780" />
   </a><br>
-  <sub>▶ <a href="media/videos/showmatch.mp4"><b>Open animation</b></a></sub>
+  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=showmatch"><b>Open Live HTML Demo</b></a></sub>
 </p>
 
 ## 🎮 In‑Game Dock
 
 <p align="center">
-  <a href="media/videos/ingame_dock.mp4">
+  <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=ingame_dock">
     <img src="media/previews/ingame_dock.png" alt="In-game radial dock" width="850" />
   </a><br>
-  <sub>▶ <a href="media/videos/ingame_dock.mp4"><b>Open animation</b></a></sub>
+  <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=ingame_dock"><b>Open Live HTML Demo</b></a></sub>
 </p>
 
 ---
@@ -225,7 +231,7 @@ The public dependency manifest is available in [`src/requirements.txt`](src/requ
 
 This repository is **source-available for audit**, not an open-source grant for reuse. The proprietary license and audit-use terms are in [`LICENSE.txt`](LICENSE.txt).
 
-The published screenshots/videos are demonstrations only and do not grant rights to extract or reuse the original visual assets.
+The published flattened presentation media and HTML demos are demonstrations only and do not grant rights to extract or reuse the original visual assets.
 
 ---
 
@@ -234,6 +240,6 @@ The published screenshots/videos are demonstrations only and do not grant rights
 **RL Overlay Studio · Beta 8.46**  
 Built for the Rocket League community.
 
-[Latest Release](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) · [Discord](https://discord.gg/QMTppqyMW)
+[Latest Release](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) · [Discord](https://discord.gg/Qed73c5kd9)
 
 </div>
