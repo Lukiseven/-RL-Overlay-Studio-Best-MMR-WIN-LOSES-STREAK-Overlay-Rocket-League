@@ -16,7 +16,7 @@
 </div>
 
 <p align="center">
-  <img src="media/hero_real_ui.webp" alt="RL Overlay Studio real interface and overlays" width="100%" />
+  <img src="media/previews/hero_recreated.svg" alt="RL Overlay Studio real interface and overlays" width="100%" />
 </p>
 
 > **Public audit repository.** The repository exposes the non-sensitive structure and security-relevant portions of RL Overlay Studio so users can inspect how the application behaves. Proprietary MMR/ranking logic, credentials, private endpoints, original UI templates and raw visual/font assets are intentionally excluded. See [`AUDIT_SCOPE.md`](AUDIT_SCOPE.md).
@@ -85,11 +85,11 @@ Every intentionally removed code block is marked with **`[PUBLIC AUDIT REDACTION
 
 ---
 
-# 🎬 Real application previews
+# 🎨 Recreated transparent previews and interactive demos
 
-The previews below are **flattened renders from the real Beta 8.46 interface**, published with transparent backgrounds. Click any preview to open its **automatic HTML presentation** on GitHub Pages.
+The images below are **new, original vector illustrations** reconstructed from the documented features and layout of Beta 8.46. They are not background-removed screenshots or pixel-exact copies of the application. Each SVG has a **transparent canvas** and the UI panels themselves are drawn as separate elements. Click a preview to explore **interactive, state-switchable HTML demonstrations** on GitHub Pages.
 
-> The live demos are presentation-only: they do not contain the production MMR implementation, API credentials, private endpoints, original font bundle or reusable production templates.
+> The demos use **example data only** and recreate UI states in standalone HTML. They do not connect to Rocket League, the private MMR implementation or the production backend; they do not contain API credentials, private endpoints, the original font bundle, original image assets or production overlay templates.
 
 <p align="center">
   <a href="https://lukiseven.github.io/RL-Overlay-Studio/"><b>🌐 OPEN THE LIVE DEMO GALLERY</b></a>
@@ -99,7 +99,7 @@ The previews below are **flattened renders from the real Beta 8.46 interface**, 
 
 <p align="center">
   <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=application_ui">
-    <img src="media/previews/application_ui.png" alt="RL Overlay Studio application" width="900" />
+    <img src="media/previews/application_ui_recreated.svg" alt="RL Overlay Studio application" width="900" />
   </a><br>
   <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=application_ui"><b>Open Live HTML Demo</b></a></sub>
 </p>
@@ -108,7 +108,7 @@ The previews below are **flattened renders from the real Beta 8.46 interface**, 
 
 <p align="center">
   <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_banner">
-    <img src="media/previews/overlay_banner.png" alt="Classic banner overlay" width="860" />
+    <img src="media/previews/overlay_banner_recreated.svg" alt="Classic banner overlay" width="860" />
   </a><br>
   <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_banner"><b>Open Live HTML Demo</b></a></sub>
 </p>
@@ -117,7 +117,7 @@ The previews below are **flattened renders from the real Beta 8.46 interface**, 
 
 <p align="center">
   <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_vertical">
-    <img src="media/previews/overlay_vertical.png" alt="Vertical compact overlay" width="420" />
+    <img src="media/previews/overlay_vertical_recreated.svg" alt="Vertical compact overlay" width="420" />
   </a><br>
   <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_vertical"><b>Open Live HTML Demo</b></a></sub>
 </p>
@@ -126,7 +126,7 @@ The previews below are **flattened renders from the real Beta 8.46 interface**, 
 
 <p align="center">
   <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_horizontal">
-    <img src="media/previews/overlay_horizontal.png" alt="Horizontal compact overlay" width="700" />
+    <img src="media/previews/overlay_horizontal_recreated.svg" alt="Horizontal compact overlay" width="700" />
   </a><br>
   <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=overlay_horizontal"><b>Open Live HTML Demo</b></a></sub>
 </p>
@@ -135,7 +135,7 @@ The previews below are **flattened renders from the real Beta 8.46 interface**, 
 
 <p align="center">
   <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=premium_rank_tower">
-    <img src="media/previews/premium_rank_tower.png" alt="Premium Rank Tower" width="420" />
+    <img src="media/previews/premium_rank_tower_recreated.svg" alt="Premium Rank Tower" width="420" />
   </a><br>
   <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=premium_rank_tower"><b>Open Live HTML Demo</b></a></sub>
 </p>
@@ -144,7 +144,7 @@ The previews below are **flattened renders from the real Beta 8.46 interface**, 
 
 <p align="center">
   <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=players_mmr">
-    <img src="media/previews/players_mmr.png" alt="Players MMR" width="700" />
+    <img src="media/previews/players_mmr_recreated.svg" alt="Players MMR" width="700" />
   </a><br>
   <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=players_mmr"><b>Open Live HTML Demo</b></a></sub>
 </p>
@@ -153,7 +153,7 @@ The previews below are **flattened renders from the real Beta 8.46 interface**, 
 
 <p align="center">
   <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=showmatch">
-    <img src="media/previews/showmatch.png" alt="Showmatch overlay" width="780" />
+    <img src="media/previews/showmatch_recreated.svg" alt="Showmatch overlay" width="780" />
   </a><br>
   <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=showmatch"><b>Open Live HTML Demo</b></a></sub>
 </p>
@@ -162,10 +162,26 @@ The previews below are **flattened renders from the real Beta 8.46 interface**, 
 
 <p align="center">
   <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=ingame_dock">
-    <img src="media/previews/ingame_dock.png" alt="In-game radial dock" width="850" />
+    <img src="media/previews/ingame_dock_recreated.svg" alt="In-game radial dock" width="850" />
   </a><br>
   <sub>▶ <a href="https://lukiseven.github.io/RL-Overlay-Studio/demo.html?view=ingame_dock"><b>Open Live HTML Demo</b></a></sub>
 </p>
+
+---
+
+## 🧩 States represented in the interactive demos
+
+The gallery lets you switch through the Beta 8.46 presentation features instead of only watching a static image:
+
+- **Stream overlays:** Classic Banner, Vertical Compact, Horizontal Compact and Premium Rank Tower.
+- **Rank/MMR states:** rank up / rank down, unranked/unknown MMR, Supersonic Legend, Top 1–5 (red), Top 6–100 (gold), Top 101–200 (silver), Top Rank hidden, and positionable MMR popup examples.
+- **Match status:** win streak / loss streak, Freeplay, private match and direct In-Game contexts.
+- **Players MMR:** Blue/Orange teams, platform hints, rank/division/MMR, left/right placement, player leaving and overlay hidden.
+- **Showmatch:** BO3 / BO5 / BO7 / BO9, match scores and series winner states.
+- **In-Game Dock:** expanded/collapsed, Premium on/off, Actions / Overlay / Appearance / Players / Sessions sections; retraction is off by default.
+- **Desktop app:** Dashboard, OBS/TikTok overlays, Sessions, Overlay Options and Settings; status/diagnostics, GitHub update flow and Discord connection are summarized.
+
+All on-page metrics, ranks, sample names, score values and interactions are **fictional demonstrations**, not live game data. Recreated imagery may simplify the look of the production UI.
 
 ---
 
@@ -231,7 +247,7 @@ The public dependency manifest is available in [`src/requirements.txt`](src/requ
 
 This repository is **source-available for audit**, not an open-source grant for reuse. The proprietary license and audit-use terms are in [`LICENSE.txt`](LICENSE.txt).
 
-The published flattened presentation media and HTML demos are demonstrations only and do not grant rights to extract or reuse the original visual assets.
+The published reconstructed vector artwork and HTML demos are illustrative presentations only; they are not the original game assets or the full application implementation.
 
 ---
 
