@@ -102,15 +102,39 @@ These presentations use **46 transparent PNG screenshots** and **12 animated Web
 - [Showmatch · BO5/BO7 and completed series](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=showmatch#presenter)
 - **In-Game Dock · corrected radial menu (preview below)**
 
-### 🎮 In-Game Dock — uniformly spaced semicircle
+### 🎮 In-Game Dock — compact radial menu (static screenshots)
 
-![Beta 8.46 In-Game Dock — five radial category buttons evenly spaced around the menu](media/readme/ingame_dock_semicircle.png)
+The five category buttons are placed on a **compact left semicircle around the Menu button**, evenly spaced at a **78 px radius** (48 px buttons, approximately 12 px between neighbouring buttons). These screenshots are assembled from **Beta 8.46 source-derived Dock presentation renders** and preserve the original panel/icon artwork, with the radial buttons repositioned for the demonstration. The application's executable is unchanged.
 
-The five category buttons — **Actions, Overlay, Appearance, Players MMR and Sessions** — follow the **left 180° arc** around the Menu button, with an equal **112 px radius** and angles **90°, 135°, 180°, 225°, 270°**. The presentation preserves the original icon set and category panels.
+**Actions rapides**
 
-![In-Game Dock — animated navigation between its five categories](media/readme/ingame_dock_semicircle_states.gif)
+![RL Overlay Studio Beta 8.46 — Dock In-Game — Actions rapides](media/readme/dock_actions.svg)
 
-*The animation cycles through the five menu panels. This is a Chromium rendering of the Beta 8.46 source-derived HTML/PyQt6 presentation, not a native Windows capture. No production code or credentials are embedded in the media.*
+**Overlay principal**
+
+![RL Overlay Studio Beta 8.46 — Dock In-Game — Overlay principal](media/readme/dock_overlay.svg)
+
+**Taille et opacité**
+
+![RL Overlay Studio Beta 8.46 — Dock In-Game — Taille et opacité](media/readme/dock_appearance.svg)
+
+**MMR des autres joueurs**
+
+![RL Overlay Studio Beta 8.46 — Dock In-Game — MMR des autres joueurs](media/readme/dock_players.svg)
+
+**Sessions sauvegardées**
+
+![RL Overlay Studio Beta 8.46 — Dock In-Game — Sessions sauvegardées](media/readme/dock_sessions.svg)
+
+**Premium disabled**
+
+![RL Overlay Studio Beta 8.46 — Dock Premium disabled](media/readme/dock_premium_off.svg)
+
+**Dock collapsed**
+
+![RL Overlay Studio Beta 8.46 — Dock closed, only the Menu button remains](media/readme/dock_closed.svg)
+
+These are **seven static images, not GIFs**. The Dock panels are Chromium captures of a faithful HTML/PyQt6 presentation, not screenshots of the native Windows process. No private API logic or credentials are included.
 
 The gallery has functional mode/state selectors, automatic playback, replay, animation on/off and transparent/checkerboard preview backgrounds. It is presentation-only: all sample metrics are fictional; no game connection, private MMR logic, production templates or API credentials are published. **The GitHub Pages loader assembles static media fragments on the client** to avoid oversized GitHub API uploads and missing relative asset paths.
 
