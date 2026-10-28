@@ -100,7 +100,17 @@ These presentations use **46 transparent PNG screenshots** and **12 animated Web
 - [Premium Rank Tower · live ring animation](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=premium_rank_tower#presenter)
 - [Players MMR · placement and player-leave states](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=players_mmr#presenter)
 - [Showmatch · BO5/BO7 and completed series](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=showmatch#presenter)
-- [In-Game Dock · five menu categories, Premium state](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=ingame_dock#presenter)
+- **In-Game Dock · corrected radial menu (preview below)**
+
+### 🎮 In-Game Dock — uniformly spaced semicircle
+
+![Beta 8.46 In-Game Dock — five radial category buttons evenly spaced around the menu](media/readme/ingame_dock_semicircle.png)
+
+The five category buttons — **Actions, Overlay, Appearance, Players MMR and Sessions** — follow the **left 180° arc** around the Menu button, with an equal **112 px radius** and angles **90°, 135°, 180°, 225°, 270°**. The presentation preserves the original icon set and category panels.
+
+![In-Game Dock — animated navigation between its five categories](media/readme/ingame_dock_semicircle_states.gif)
+
+*The animation cycles through the five menu panels. This is a Chromium rendering of the Beta 8.46 source-derived HTML/PyQt6 presentation, not a native Windows capture. No production code or credentials are embedded in the media.*
 
 The gallery has functional mode/state selectors, automatic playback, replay, animation on/off and transparent/checkerboard preview backgrounds. It is presentation-only: all sample metrics are fictional; no game connection, private MMR logic, production templates or API credentials are published. **The GitHub Pages loader assembles static media fragments on the client** to avoid oversized GitHub API uploads and missing relative asset paths.
 
