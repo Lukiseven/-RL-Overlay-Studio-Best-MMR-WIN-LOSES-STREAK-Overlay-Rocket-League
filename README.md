@@ -16,7 +16,7 @@
 </div>
 
 <p align="center">
-  <img src="media/previews/hero_recreated.svg" alt="RL Overlay Studio real interface and overlays" width="100%" />
+  <img src="media/previews/hero_recreated.svg" alt="Recreated transparent RL Overlay Studio Beta 8.46 desktop and overlay illustrations" width="100%" />
 </p>
 
 > **Public audit repository.** The repository exposes the non-sensitive structure and security-relevant portions of RL Overlay Studio so users can inspect how the application behaves. Proprietary MMR/ranking logic, credentials, private endpoints, original UI templates and raw visual/font assets are intentionally excluded. See [`AUDIT_SCOPE.md`](AUDIT_SCOPE.md).
