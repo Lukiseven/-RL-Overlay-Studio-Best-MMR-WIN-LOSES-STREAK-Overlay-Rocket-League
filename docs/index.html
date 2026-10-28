@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><title>RL Overlay Studio · Live Demos</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#080b12;color:#eef2ff;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.wrap{width:min(1180px,92vw);margin:auto;padding:64px 0 80px}.hero{text-align:center;margin-bottom:42px}.hero h1{font-size:clamp(38px,7vw,74px);letter-spacing:-.055em;margin:0}.hero p{color:#8c9ab2;max-width:780px;margin:16px auto;line-height:1.6}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.btn{display:inline-block;padding:11px 16px;border-radius:999px;text-decoration:none;color:#fff;border:1px solid #202a3b;background:#101624;font-weight:700;font-size:13px}.btn.primary{background:#6e4cff;border-color:#866cff}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:38px}.card{position:relative;min-height:300px;border:1px solid #182235;border-radius:24px;background:linear-gradient(145deg,#0e1420,#090d15);overflow:hidden;text-decoration:none;color:inherit;padding:20px;display:grid;grid-template-rows:1fr auto;transition:.25s transform,.25s border-color}.card:hover{transform:translateY(-4px);border-color:#52658a}.art{display:grid;place-items:center;min-height:210px}.art img{max-width:92%;max-height:220px;object-fit:contain;filter:drop-shadow(0 20px 28px rgba(0,0,0,.42))}.meta{display:flex;justify-content:space-between;gap:12px;align-items:end}.meta span{color:#7f8ca2;font-size:12px}.meta b{font-size:17px}.live{font-size:11px;color:#62e6ad!important;text-transform:uppercase;letter-spacing:.14em;font-weight:900}
+.note{text-align:center;color:#657188;font-size:12px;margin-top:28px}
+@media(max-width:760px){.wrap{padding-top:38px}.grid{grid-template-columns:1fr}.card{min-height:260px}}
+</style>
+</head>
+<body><main class="wrap">
+<section class="hero"><h1>RL Overlay Studio</h1><p>Automatic presentation demos built from flattened Beta 8.46 renders. No production API credentials, private MMR implementation, original font bundle or reusable production templates are included.</p>
+<div class="actions"><a class="btn primary" href="https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest">Latest Release</a><a class="btn" href="https://discord.gg/Qed73c5kd9">Discord</a><a class="btn" href="https://github.com/Lukiseven/RL-Overlay-Studio">Public Audit Source</a></div></section>
+<section class="grid" id="grid"></section><p class="note">Presentation-only · RL Overlay Studio Beta 8.46</p>
+</main>
+<script>
+const items=[
+["application_ui","Main application","Desktop UI"],
+["overlay_banner","Classic Banner","Stream overlay"],
+["overlay_vertical","Vertical Compact","Stream overlay"],
+["overlay_horizontal","Horizontal Compact","Stream overlay"],
+["premium_rank_tower","Premium Rank Tower","Premium presentation"],
+["players_mmr","Players MMR","Lobby presentation"],
+["showmatch","Showmatch","Series presentation"],
+["ingame_dock","In‑Game Dock","Quick controls"]
+];
+document.getElementById("grid").innerHTML=items.map(([id,title,type])=>`<a class="card" href="demo.html?view=${id}"><div class="art"><img src="assets/${id}.png" alt="${title}"></div><div class="meta"><div><b>${title}</b><br><span>${type}</span></div><span class="live">● Live HTML</span></div></a>`).join("");
+</script></body></html>
