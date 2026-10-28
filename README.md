@@ -102,33 +102,40 @@ These presentations use **46 transparent PNG screenshots** and **12 animated Web
 - [Showmatch · BO5/BO7 and completed series](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=showmatch#presenter)
 - **In-Game Dock · corrected radial menu (preview below)**
 
-### 🎮 In-Game Dock — compact radial menu
+### 🎮 In-Game Dock — exact Beta 8.46 source geometry
 
-The five main category buttons are arranged evenly along a **78 px semicircular arc** around Menu. The **Discord** and **Show Application** shortcuts sit **inside the arc**, between the Menu button and the five categories, at about **46 px** from Menu. No GIFs: the seven states below are individual static PNG images with transparent backgrounds.
+These seven static illustrations follow the **original `InGameQuickMenu` geometry in the uncompiled Beta 8.46 `app.py` source**, rather than guessed semicircle coordinates:
+
+- **Menu:** 60 × 60 px.
+- **Five category buttons:** 48 × 48 px; radius **108 px**, at **118°, 149°, 180°, 211° and 242°**, extending across the left arc.
+- **Show Application:** 36 × 36 px, on the **same vertical centerline as Menu**, with an **8 px gap immediately above**.
+- **Discord:** 36 × 36 px, on that **same centerline**, with an **8 px gap immediately below**.
+- **Panel:** 452 × 536 px, with an **18 px horizontal gap** to the leftmost radial button.
+
+Both permanent shortcuts are **above and below Menu, not placed on a separate inner arc**. The colors, source artwork and panel visuals are retained. The images are static SVG presentations with transparent outer canvases; **no GIF and no embedded production Python source**.
 
 #### Actions
-![Dock In-Game — Actions](media/readme/dock_actions.png)
+![Dock In-Game — Actions](media/readme/dock_actions.svg)
 
 #### Overlay
-![Dock In-Game — Overlay](media/readme/dock_overlay.png)
+![Dock In-Game — Overlay](media/readme/dock_overlay.svg)
 
 #### Appearance
-![Dock In-Game — Appearance](media/readme/dock_appearance.png)
+![Dock In-Game — Appearance](media/readme/dock_appearance.svg)
 
 #### Players MMR
-![Dock In-Game — Players MMR](media/readme/dock_players.png)
+![Dock In-Game — Players MMR](media/readme/dock_players.svg)
 
 #### Sessions
-![Dock In-Game — Sessions](media/readme/dock_sessions.png)
+![Dock In-Game — Sessions](media/readme/dock_sessions.svg)
 
 #### Premium unavailable
-![Dock In-Game — Premium disabled](media/readme/dock_premium_off.png)
+![Dock In-Game — Premium disabled](media/readme/dock_premium_off.svg)
 
 #### Dock closed
-![Dock In-Game — collapsed state](media/readme/dock_closed.png)
+![Dock In-Game — collapsed state](media/readme/dock_closed.svg)
 
-*Source-derived Beta 8.46 Chromium presentation; these are not native Windows screenshots. No production implementation or private credentials are included.*
-
+*The position values are read directly from Beta 8.46 source. Panels and controls are rendered as presentation imagery; these are not native Windows screenshots.*
 
 The gallery has functional mode/state selectors, automatic playback, replay, animation on/off and transparent/checkerboard preview backgrounds. It is presentation-only: all sample metrics are fictional; no game connection, private MMR logic, production templates or API credentials are published. **The GitHub Pages loader assembles static media fragments on the client** to avoid oversized GitHub API uploads and missing relative asset paths.
 
