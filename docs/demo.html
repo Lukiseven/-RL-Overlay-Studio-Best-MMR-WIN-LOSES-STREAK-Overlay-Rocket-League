@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>RL Overlay Studio · Live Demo</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#fff}
+body{min-height:100vh;display:grid;place-items:center;overflow:hidden;background:
+radial-gradient(circle at 22% 18%,rgba(28,120,255,.14),transparent 34%),
+radial-gradient(circle at 82% 78%,rgba(255,92,18,.12),transparent 36%),
+#080b12}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent)}
+.shell{width:min(96vw,1500px);min-height:82vh;display:grid;grid-template-rows:auto 1fr auto;gap:22px;padding:26px}
+.top,.bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:3}
+.brand{font-weight:900;letter-spacing:-.02em}.brand small{display:block;color:#8290a8;font-size:11px;text-transform:uppercase;letter-spacing:.16em;margin-top:5px}
+.pill{border:1px solid rgba(255,255,255,.12);background:rgba(9,13,23,.72);backdrop-filter:blur(18px);border-radius:999px;padding:9px 13px;color:#aeb9cc;font-size:12px;text-decoration:none}
+.stage{position:relative;display:grid;place-items:center;min-height:58vh}
+.glow{position:absolute;width:min(65vw,760px);height:min(34vw,420px);border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(74,118,255,.17),rgba(147,55,255,.08) 48%,transparent 72%);animation:breathe 5s ease-in-out infinite}
+.demo{position:relative;z-index:2;max-width:100%;max-height:66vh;object-fit:contain;filter:drop-shadow(0 26px 42px rgba(0,0,0,.5));transform-origin:center;animation:showcase 8s cubic-bezier(.22,.75,.2,1) infinite}
+.caption{font-size:12px;color:#7f8da5}.caption b{color:#d7def0}.links{display:flex;gap:8px;flex-wrap:wrap}
+@keyframes showcase{0%{opacity:0;transform:translateY(28px) scale(.94)}10%{opacity:1;transform:translateY(0) scale(1)}42%{transform:translateY(-6px) scale(1.012)}68%{transform:translateY(3px) scale(.998)}88%{opacity:1;transform:translateY(0) scale(1.006)}100%{opacity:0;transform:translateY(-8px) scale(.985)}}
+@keyframes breathe{0%,100%{opacity:.5;transform:scale(.92)}50%{opacity:1;transform:scale(1.08)}}
+@media(max-width:700px){.shell{padding:16px;min-height:92vh}.top{align-items:flex-start}.top .pill{display:none}.stage{min-height:62vh}.demo{max-height:62vh}.bottom{align-items:flex-end}}
+@media(prefers-reduced-motion:reduce){.demo,.glow{animation:none}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="top">
+    <div class="brand">⚡ RL Overlay Studio<small>Beta 8.46 · Presentation Demo</small></div>
+    <a class="pill" href="./">All demos</a>
+  </header>
+  <section class="stage">
+    <div class="glow"></div>
+    <img id="demo" class="demo" alt="">
+  </section>
+  <footer class="bottom">
+    <div class="caption"><b id="title">Live Demo</b><br><span id="desc">Flattened presentation render · no production API or private logic</span></div>
+    <div class="links">
+      <a class="pill" href="https://discord.gg/Qed73c5kd9" target="_blank" rel="noopener">Discord</a>
+      <a class="pill" href="https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest">Latest Release</a>
+    </div>
+  </footer>
+</main>
+<script>
+const views={
+ application_ui:["Main application","application_ui.png","Desktop interface and session controls"],
+ overlay_banner:["Classic Banner","overlay_banner.png","Wins · Losses · MMR · Streak"],
+ overlay_vertical:["Vertical Compact","overlay_vertical.png","Compact vertical stream presentation"],
+ overlay_horizontal:["Horizontal Compact","overlay_horizontal.png","Compact horizontal stream presentation"],
+ premium_rank_tower:["Premium Rank Tower","premium_rank_tower.png","Premium rank progression presentation"],
+ players_mmr:["Players MMR","players_mmr.png","Lobby/player MMR presentation"],
+ showmatch:["Showmatch","showmatch.png","BO3 / BO5 / BO7 / BO9 presentation"],
+ ingame_dock:["In‑Game Dock","ingame_dock.png","Radial dock and quick controls"]
+};
+const q=new URLSearchParams(location.search).get("view")||"application_ui";
+const v=views[q]||views.application_ui;
+document.title="RL Overlay Studio · "+v[0];
+document.getElementById("title").textContent=v[0];
+document.getElementById("desc").textContent=v[2]+" · presentation-only render";
+const img=document.getElementById("demo");
+img.src="assets/"+v[1]; img.alt="RL Overlay Studio · "+v[0];
+img.addEventListener("click",()=>{img.style.animation="none";void img.offsetHeight;img.style.animation=""});
+</script>
+</body>
+</html>
