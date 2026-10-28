@@ -1,217 +1,216 @@
-<div align="center">
-
 # RL Overlay Studio
 
-### Rocket League overlays for players, creators & streamers
+### Rocket League overlays for players, content creators and streamers
 
-**Beta 8.46 · Windows · PyQt6 · OBS · TikTok Live Studio · In‑Game · Discord**
+**Beta 8.46 · Windows 10/11 · OBS · TikTok Live Studio · In-Game · Discord**
 
-[![Version](https://img.shields.io/badge/version-Beta%208.46-7C5CFC?style=for-the-badge)](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest)
-![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4?style=for-the-badge&logo=windows11&logoColor=white)
-![Python](https://img.shields.io/badge/Python-PyQt6-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Audit Source](https://img.shields.io/badge/source-public%20audit-22C55E?style=for-the-badge)
+[![Version](https://img.shields.io/badge/version-Beta%208.46-7C5CFC?style=for-the-badge)](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) ![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4?style=for-the-badge&logo=windows11&logoColor=white) ![Public audit](https://img.shields.io/badge/source-public%20audit-22C55E?style=for-the-badge)
 
-[**⬇️ Latest Release**](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) · [**🌐 Gallery (Pages setup required)**](https://lukiseven.github.io/RL-Overlay-Studio/) · [**💬 Discord**](https://discord.gg/Qed73c5kd9)
+**[Download the latest release](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest)** · **[Join our Discord](https://discord.gg/Qed73c5kd9)** · **[Source audit scope](AUDIT_SCOPE.md)**
 
-</div>
+RL Overlay Studio is an external Windows companion for Rocket League. It tracks session activity and displays rank/MMR, wins, losses, streaks and match information through customizable overlays. Stream to OBS or TikTok Live Studio, or use optional In-Game components. The application does **not** inject code into Rocket League.
 
-<p align="center"><a href="https://lukiseven.github.io/RL-Overlay-Studio/showcase.html"><strong>▶ VIEW AUTHENTIC BETA 8.46 INTERACTIVE DEMOS & ANIMATIONS</strong></a></p>
-
-> **Public audit repository.** The repository exposes the non-sensitive structure and security-relevant portions of RL Overlay Studio so users can inspect how the application behaves. Proprietary MMR/ranking logic, credentials, private endpoints, original UI templates and raw visual/font assets are intentionally excluded. See [`AUDIT_SCOPE.md`](AUDIT_SCOPE.md).
+> **About these screenshots:** The streamer overlays, Players MMR and Showmatch are flattened Chromium renders of the original Beta 8.46 HTML/CSS/JavaScript templates. Desktop application pages and Dock panels are accurate **HTML presentations reconstructed from the PyQt6 source**, not direct Windows application captures. The corrected Dock geometry follows the original uncompiled Beta 8.46 source. Player names, scores, MMR and ranks are sample values. All screenshots are static, with no live API requests.
 
 ---
 
-## ⚡ What is RL Overlay Studio?
+## 01 · Application overview
 
-RL Overlay Studio is a Windows companion application for Rocket League players and streamers. It turns game/session information into readable overlays for **OBS**, **TikTok Live Studio** and optional **In‑Game** display.
+![RL Overlay Studio Beta 8.46 — complete desktop application and live overlay preview](media/readme/captures/application_overview.png)
 
-The product includes:
+### Dashboard
 
-- session tracking and match-state handling;
-- MMR / rank presentation through a protected private service;
-- Wins / Losses / Streak presentation;
-- multiple streaming overlays;
-- Players MMR presentation;
-- Showmatch BO3 / BO5 / BO7 / BO9 tools;
-- an In‑Game radial Dock;
-- Discord authentication / Premium access;
-- local HTTP / WebSocket communication;
-- automatic update support through GitHub Releases;
-- French / English UI.
+Session wins/losses, current streak, rank and MMR, match status, connection indicators and quick actions.
 
-The application is designed as an **external companion tool** and does not inject code into the Rocket League process.
+![Dashboard: session statistics, rank and quick actions](media/readme/captures/application_ui_00_dashboard.png)
 
----
+### Application pages and configuration
 
-## 🔍 Public source for security review
+The desktop interface includes OBS/TikTok Live Studio controls, session management, overlay options and diagnostics. The source screenshots preserve the layout and controls represented in the Beta 8.46 application.
 
-The folder [`src/`](src/) contains a **sanitized audit copy derived from the Beta 8.46 source**. It is intentionally **not buildable**.
+**OBS and TikTok Live Studio configuration**
 
-### Included for review
+![OBS and TikTok Live Studio configuration](media/readme/captures/application_ui_01_overlay_obs_tiktok.png)
 
-Visitors can inspect, among other things:
+**Session management and saved statistics**
 
-- Python imports and dependency usage;
-- application bootstrap and PyQt6 structure;
-- Windows process/window interaction;
-- local file and configuration handling;
-- local HTTP / WebSocket architecture;
-- StatsAPI client structure;
-- Discord OAuth flow structure with identifiers removed;
-- logging and diagnostics;
-- settings and session persistence;
-- update/release logic;
-- UI control flow outside protected proprietary modules.
+![Session management and saved statistics](media/readme/captures/application_ui_02_sessions.png)
 
-### Deliberately excluded
+**Overlay settings and customization**
 
-To protect the project from direct cloning, the public audit source does **not** include:
+![Overlay settings and customization](media/readme/captures/application_ui_03_options_overlay.png)
 
-- MMR acquisition / lookup implementation;
-- rank/MMR thresholds and division tables;
-- private player identity-resolution logic used by the MMR system;
-- API keys, tokens, secrets, Discord IDs and private endpoints;
-- private backend request implementation;
-- embedded HTML/CSS/JS overlay templates;
-- original logos, rank images, PNG/JPG/SVG/ICO assets;
-- original font files or font bundle;
-- release-protection/signing internals.
+**Application settings and diagnostics**
 
-Every intentionally removed code block is marked with **`[PUBLIC AUDIT REDACTION]`**. A machine-readable list is also provided in [`redactions_manifest.json`](redactions_manifest.json).
-
-> **Important:** because some proprietary code is redacted, this repository cannot provide a reproducible build or prove byte-for-byte that the public source equals the distributed executable. It provides transparency into the exposed application components and security-relevant behavior. Release hashes are provided separately for integrity verification.
+![Application settings and diagnostics](media/readme/captures/application_ui_04_reglages.png)
 
 ---
 
-# 🎬 Authentic Beta 8.46 Chromium presentations
+## 02 · Streaming overlays
 
-[**▶ OPEN THE REAL INTERACTIVE GALLERY (GitHub Pages)**](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html)
+Each layout targets a different on-stream arrangement while presenting the Rocket League session. Compact layouts and the Rank Tower are Premium presentations.
 
-> **Deployment status (28 October 2026):** The gallery files are committed, but GitHub Pages has not yet been enabled for this repository. The owner must choose **Settings → Pages → Source: GitHub Actions** and then rerun the Pages workflow. [One-time setup instructions](docs/PAGES_SETUP.md).
+### Classic Banner default view
 
-These presentations use **46 transparent PNG screenshots** and **12 animated WebP sequences**, captured from the original Beta 8.46 HTML/CSS/JS overlay renderer in Chromium. Unlike the previous illustrations, the streamer overlay, Premium Rank Tower, Players MMR and Showmatch visuals are based on genuine application templates. The Desktop UI and radial Dock are faithful HTML transcriptions of the source PyQt6 structure, **not native Windows screenshots**.
+![Classic Banner default view](media/readme/captures/overlay_banner_00_neutre.png)
 
-**Explore individual features:**
+### Compact Vertical premium layout
 
-- [Desktop application · five tabs](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=application_ui#presenter)
-- [Classic Banner · Top Rank, streak, popups, rank-up/down](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=overlay_banner#presenter)
-- [Compact Vertical](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=overlay_vertical#presenter)
-- [Compact Horizontal](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=overlay_horizontal#presenter)
-- [Premium Rank Tower · live ring animation](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=premium_rank_tower#presenter)
-- [Players MMR · placement and player-leave states](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=players_mmr#presenter)
-- [Showmatch · BO5/BO7 and completed series](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html?view=showmatch#presenter)
-- **In-Game Dock · corrected radial menu (preview below)**
+![Compact Vertical premium layout](media/readme/captures/overlay_vertical_00_vertical.png)
 
-### 🎮 In-Game Dock — exact Beta 8.46 source geometry
+### Compact Horizontal premium layout
 
-These seven static illustrations follow the **original `InGameQuickMenu` geometry in the uncompiled Beta 8.46 `app.py` source**, rather than guessed semicircle coordinates:
+![Compact Horizontal premium layout](media/readme/captures/overlay_horizontal_00_horizontal.png)
 
-- **Menu:** 60 × 60 px.
-- **Five category buttons:** 48 × 48 px; radius **108 px**, at **118°, 149°, 180°, 211° and 242°**, extending across the left arc.
-- **Show Application:** 36 × 36 px, on the **same vertical centerline as Menu**, with an **8 px gap immediately above**.
-- **Discord:** 36 × 36 px, on that **same centerline**, with an **8 px gap immediately below**.
-- **Panel:** 452 × 536 px, with an **18 px horizontal gap** to the leftmost radial button.
+### Premium Rank Tower
 
-Both permanent shortcuts are **above and below Menu, not placed on a separate inner arc**. The colors, source artwork and panel visuals are retained. The images are static SVG presentations with transparent outer canvases; **no GIF and no embedded production Python source**.
+![Premium Rank Tower](media/readme/captures/premium_rank_tower_00_tour_premium.png)
 
-#### Actions
-![Dock In-Game — Actions](media/readme/dock_actions.svg)
-
-#### Overlay
-![Dock In-Game — Overlay](media/readme/dock_overlay.svg)
-
-#### Appearance
-![Dock In-Game — Appearance](media/readme/dock_appearance.svg)
-
-#### Players MMR
-![Dock In-Game — Players MMR](media/readme/dock_players.svg)
-
-#### Sessions
-![Dock In-Game — Sessions](media/readme/dock_sessions.svg)
-
-#### Premium unavailable
-![Dock In-Game — Premium disabled](media/readme/dock_premium_off.svg)
-
-#### Dock closed
-![Dock In-Game — collapsed state](media/readme/dock_closed.svg)
-
-*The position values are read directly from Beta 8.46 source. Panels and controls are rendered as presentation imagery; these are not native Windows screenshots.*
-
-The gallery has functional mode/state selectors, automatic playback, replay, animation on/off and transparent/checkerboard preview backgrounds. It is presentation-only: all sample metrics are fictional; no game connection, private MMR logic, production templates or API credentials are published. **The GitHub Pages loader assembles static media fragments on the client** to avoid oversized GitHub API uploads and missing relative asset paths.
+**Supported information:** current playlist and rank/division, MMR, wins, losses, streaks, Top Rank (when applicable) and match events.
 
 ---
 
-# 🌐 High-level architecture
+## 03 · Classic Banner — states and effects
+
+The banner can represent match events, rank changes, Top Rank levels and MMR pop-ups. The following images are **individual static captures of demonstration states**, not animated playback. Effects that depend on timing may look identical in a still frame; for example, Freeplay/private context or Rank Up can change underlying behavior without a permanently different visual.
+
+### Session & streaks
+
+| | |
+| :---: | :---: |
+| ![Neutral — Ranked session](media/readme/captures/overlay_banner_00_neutre.png) | ![Win streak](media/readme/captures/overlay_banner_01_win_streak.png) |
+| ![Loss streak](media/readme/captures/overlay_banner_02_loss_streak.png) | ![Rank Up example](media/readme/captures/overlay_banner_09_rank_up.png) |
+| ![Rank Down example](media/readme/captures/overlay_banner_10_rank_down.png) | ![Freeplay context](media/readme/captures/overlay_banner_15_freeplay.png) |
+| ![Private match context](media/readme/captures/overlay_banner_16_partie_privee.png) | ![Direct In-Game context](media/readme/captures/overlay_banner_17_direct_in_game.png) |
+
+### Top Rank & rank availability
+
+- **Top 1–5:** red.
+- **Top 6–100:** gold.
+- **Top 101–200:** silver.
+- **Outside Top 200:** Top Rank hidden.
+
+| | |
+| :---: | :---: |
+| ![Top Rank #1–5 (red)](media/readme/captures/overlay_banner_03_top_15_rouge.png) | ![Top Rank #6–100 (gold)](media/readme/captures/overlay_banner_04_top_6100_or.png) |
+| ![Top Rank #101–200 (silver)](media/readme/captures/overlay_banner_05_top_101200_argent.png) | ![Top Rank hidden](media/readme/captures/overlay_banner_06_sans_top_rank.png) |
+| ![MMR unavailable](media/readme/captures/overlay_banner_07_mmr_absent.png) | ![Supersonic Legend](media/readme/captures/overlay_banner_08_supersonic_legend.png) |
+
+### Positionable MMR pop-ups
+
+| | |
+| :---: | :---: |
+| ![MMR popup — bottom](media/readme/captures/overlay_banner_11_pop_up_en_bas.png) | ![MMR popup — top](media/readme/captures/overlay_banner_12_pop_up_en_haut.png) |
+| ![MMR popup — left](media/readme/captures/overlay_banner_13_pop_up_a_gauche.png) | ![MMR popup — right](media/readme/captures/overlay_banner_14_pop_up_a_droite.png) |
+
+**These are different presentation states of the original overlay renderer**, displayed without exposing its proprietary HTML templates or protected MMR/ranking implementation.
+
+---
+
+## 04 · Players MMR (In-Game)
+
+Displays the other players' platform markers, ranks, divisions and available MMR information, with positioning and player-departure states.
+
+### Players MMR — right-aligned
+
+![Players MMR — right-aligned](media/readme/captures/players_mmr_00_droite.png)
+
+### Players MMR — left-aligned
+
+![Players MMR — left-aligned](media/readme/captures/players_mmr_01_gauche.png)
+
+### Players MMR — player departed
+
+![Players MMR — player departed](media/readme/captures/players_mmr_02_joueur_parti.png)
+
+---
+
+## 05 · Showmatch — competitive series
+
+Showmatch presentation supports **BO3, BO5, BO7 and BO9**, series scores, current game and completed-series winner states. The screenshots below show selected source-rendered states.
+
+| | |
+| :---: | :---: |
+| ![Showmatch BO5 — live series](media/readme/captures/showmatch_00_bo5_live.png) | ![Showmatch BO7 — live series](media/readme/captures/showmatch_01_bo7_live.png) |
+| ![Showmatch — left side wins](media/readme/captures/showmatch_02_victoire_gauche.png) | ![Showmatch — right side wins](media/readme/captures/showmatch_03_victoire_droite.png) |
+
+---
+
+## 06 · In-Game Dock — original Beta 8.46 geometry
+
+The following **seven static presentations** retain the corrected radial-button positions from the uncompiled Beta 8.46 `InGameQuickMenu` source rather than approximated semicircle positions.
+
+- **Main Menu:** 60 × 60 px.
+- **Five categories:** 48 × 48 px, radius 108 px; angles **118°, 149°, 180°, 211° and 242°**.
+- **Show Application:** 36 × 36 px, vertically aligned above Menu, with an 8 px gap.
+- **Discord:** 36 × 36 px, vertically aligned below Menu, with an 8 px gap.
+- **Category panel:** 452 × 536 px, with an 18 px horizontal gap to the nearest radial category button.
+
+| | |
+| :---: | :---: |
+| ![Dock — Actions](media/readme/dock_actions.svg) | ![Dock — Overlay](media/readme/dock_overlay.svg) |
+| ![Dock — Appearance](media/readme/dock_appearance.svg) | ![Dock — Players MMR](media/readme/dock_players.svg) |
+| ![Dock — Sessions](media/readme/dock_sessions.svg) | ![Dock — Premium unavailable](media/readme/dock_premium_off.svg) |
+
+**Dock closed**
+
+![Dock — collapsed](media/readme/dock_closed.svg)
+
+The category views are **Actions, Overlay, Appearance, Players MMR and Sessions**, plus the Premium-unavailable and collapsed presentations. No animated GIF, interactive demo or external gallery is required to view them.
+
+---
+
+## 07 · Capabilities
+
+- **Session tracking:** wins, losses, streaks, ranked and selected casual handling, match-state detection, saved sessions.
+- **Overlays:** Classic Banner, Compact Vertical, Compact Horizontal, Premium Rank Tower, Players MMR and Showmatch.
+- **Streaming:** OBS/TikTok Browser Sources and network relay support.
+- **In-Game:** optional radial Dock, status displays, configurable visibility and controls.
+- **Access:** Discord authentication and Premium feature gating.
+- **Localization:** French and English.
+- **Updates & diagnostics:** GitHub release checks, local logs and connection status indicators.
+
+---
+
+## 08 · Technical architecture
 
 ```mermaid
 flowchart LR
-    RL["Rocket League"] -->|"StatsAPI · local"| APP["RL Overlay Studio"]
+    RL["Rocket League"] -->|"StatsAPI / local"| APP["RL Overlay Studio"]
     LOG["Rocket League logs"] --> APP
-    APP -->|"protected requests"| PRIVATE["Private MMR service"]
-    APP -->|"Local HTTP / WebSocket"| LOCAL["Local UI / direct overlays"]
-    APP -->|"OAuth"| DISCORD["Discord"]
+    APP -->|"Protected MMR requests"| PRIVATE["Private MMR service"]
+    APP -->|"Local HTTP / WebSocket"| LOCAL["Local overlays"]
+    APP -->|"Authentication"| DISCORD["Discord"]
     APP -->|"Network relay"| STREAM["OBS / TikTok Live Studio"]
 ```
 
-Private service URLs, credentials, IDs and implementation details are deliberately not published.
+The app is built with **Python, PyQt6, PyQt6 WebEngine, HTML/CSS/JavaScript, local HTTP/WebSockets, and Discord OAuth**.
+
+### Public audit source
+
+This repository provides a **sanitized, non-buildable security-review copy derived from Beta 8.46** in [`src/`](src/). It exposes the application's high-level structure, local networking, diagnostics, configuration, authentication flow and update architecture while withholding proprietary ranking/MMR internals, private endpoints, keys and production artwork.
+
+- [Audit scope](AUDIT_SCOPE.md)
+- [Redactions and exclusions](REDACTIONS.md)
+- [Third-party dependencies](THIRD_PARTY_DEPENDENCIES.md)
+- [Security policy](SECURITY.md)
+- [Audit-use license](LICENSE.txt)
+
+The published screenshots are flattened, demonstration-only presentations. Their inclusion does not provide complete or reproducible production source code.
 
 ---
 
-# 🔐 Security & privacy
+## 09 · Beta 8.46 release integrity
 
-The public audit copy is intended to make security review easier without publishing the project's proprietary ranking infrastructure.
-
-- No production API key is included.
-- No production token or client secret is included.
-- No private backend hostname is included.
-- Long account/server identifiers used internally are redacted.
-- Original visual assets and font files are omitted.
-- The source contains explicit markers where protected logic was removed.
-
-For the exact review boundary, read [`AUDIT_SCOPE.md`](AUDIT_SCOPE.md). To report a security issue, read [`SECURITY.md`](SECURITY.md).
-
----
-
-# ✅ Release integrity — Beta 8.46
-
-Release SHA-256 values are documented in [`RELEASE_VERIFICATION.md`](RELEASE_VERIFICATION.md).
+[Release verification instructions](RELEASE_VERIFICATION.md)
 
 ```text
-ZIP : fcced4298a0952b109b4e657c82aa1c79c911f9875a43cc7974e862731adb4f6
-EXE : c7aaea996bbfafb9fe1c2aa11e2f8cd75a8a4557c7c847cc1dfc2418fb9f7e87
+ZIP SHA-256: fcced4298a0952b109b4e657c82aa1c79c911f9875a43cc7974e862731adb4f6
+EXE SHA-256: c7aaea996bbfafb9fe1c2aa11e2f8cd75a8a4557c7c847cc1dfc2418fb9f7e87
 ```
 
-These hashes let users verify that the file they downloaded is the same release file referenced by this repository.
-
 ---
 
-# 📦 Dependencies
+**RL Overlay Studio · Beta 8.46** — Built for the Rocket League community.
 
-The public dependency manifest is available in [`src/requirements.txt`](src/requirements.txt). The principal runtime technologies are:
-
-- Python
-- PyQt6
-- PyQt6 WebEngine
-- WebSockets
-- local HTTP networking
-- Discord OAuth
-- GitHub Releases
-
----
-
-# 📄 License / source availability
-
-This repository is **source-available for audit**, not an open-source grant for reuse. The proprietary license and audit-use terms are in [`LICENSE.txt`](LICENSE.txt).
-
-The published reconstructed vector artwork and HTML demos are illustrative presentations only; they are not the original game assets or the full application implementation.
-
----
-
-<div align="center">
-
-**RL Overlay Studio · Beta 8.46**  
-Built for the Rocket League community.
-
-[Latest Release](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) · [Discord](https://discord.gg/Qed73c5kd9)
-
-</div>
+[Latest release](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) · [Discord](https://discord.gg/Qed73c5kd9)
