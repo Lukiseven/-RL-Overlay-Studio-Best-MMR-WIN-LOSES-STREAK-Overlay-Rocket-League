@@ -11,7 +11,7 @@
 ![Python](https://img.shields.io/badge/Python-PyQt6-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Audit Source](https://img.shields.io/badge/source-public%20audit-22C55E?style=for-the-badge)
 
-[**⬇️ Latest Release**](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) · [**🌐 Live Demos**](https://lukiseven.github.io/RL-Overlay-Studio/) · [**💬 Discord**](https://discord.gg/Qed73c5kd9)
+[**⬇️ Latest Release**](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) · [**🌐 Gallery (Pages setup required)**](https://lukiseven.github.io/RL-Overlay-Studio/) · [**💬 Discord**](https://discord.gg/Qed73c5kd9)
 
 </div>
 
@@ -86,6 +86,8 @@ Every intentionally removed code block is marked with **`[PUBLIC AUDIT REDACTION
 # 🎬 Authentic Beta 8.46 Chromium presentations
 
 [**▶ OPEN THE REAL INTERACTIVE GALLERY (GitHub Pages)**](https://lukiseven.github.io/RL-Overlay-Studio/showcase.html)
+
+> **Deployment status (28 October 2026):** The gallery files are committed, but GitHub Pages has not yet been enabled for this repository. The owner must choose **Settings → Pages → Source: GitHub Actions** and then rerun the Pages workflow. [One-time setup instructions](docs/PAGES_SETUP.md).
 
 These presentations use **46 transparent PNG screenshots** and **12 animated WebP sequences**, captured from the original Beta 8.46 HTML/CSS/JS overlay renderer in Chromium. Unlike the previous illustrations, the streamer overlay, Premium Rank Tower, Players MMR and Showmatch visuals are based on genuine application templates. The Desktop UI and radial Dock are faithful HTML transcriptions of the source PyQt6 structure, **not native Windows screenshots**.
 
