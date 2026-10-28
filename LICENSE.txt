@@ -1,0 +1,30 @@
+PROPRIETARY SOURCE-AVAILABLE AUDIT LICENSE — RL OVERLAY STUDIO
+
+Copyright © 2026 Luki7 / Eraclesss. All rights reserved.
+
+PURPOSE OF THIS PUBLIC REPOSITORY
+The source material in this repository is made publicly viewable for security review, transparency and audit purposes only. Publication does not grant an open-source license.
+
+PERMITTED
+- View and inspect the files for personal security/audit purposes.
+- Reference small portions when reporting a security issue to the project owners, where permitted by applicable law and GitHub's terms.
+
+NOT PERMITTED WITHOUT PRIOR WRITTEN AUTHORIZATION
+- Reuse, copy, redistribute or republish the code outside the permissions required by GitHub's platform functionality.
+- Create derivative or competing software from the published code.
+- Reconstruct redacted proprietary modules.
+- Extract or reuse designs, overlays, logos, icons, artwork or other visual elements.
+- Commercialize any part of RL Overlay Studio.
+- Circumvent access, protection, update or Premium systems.
+- Use the public audit source to reproduce the production application.
+
+REDACTED COMPONENTS
+Certain proprietary components, credentials, private endpoints, ranking/MMR logic and original assets are intentionally excluded from this repository.
+
+NO WARRANTY
+The materials are provided as-is, without warranty of any kind.
+
+GITHUB
+This notice does not override rights that GitHub users receive under GitHub's Terms of Service for viewing and forking public repositories through GitHub's functionality.
+
+For permissions beyond the scope above, written authorization from the project owners is required.

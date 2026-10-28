@@ -1,0 +1,4 @@
+This public audit source is intentionally non-buildable.
+
+The production build contains proprietary components and protected assets that are not published here.
+The file is provided to make the scope explicit and to avoid presenting a redacted tree as reproducible source.

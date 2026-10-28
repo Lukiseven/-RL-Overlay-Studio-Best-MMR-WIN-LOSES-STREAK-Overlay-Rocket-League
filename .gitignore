@@ -1,0 +1,50 @@
+# Secrets / local configuration
+.env
+.env.*
+*.secret
+secrets.*
+config.json
+*.token
+
+# Private / production-only source
+private/
+production/
+internal/
+protection_tools/
+
+# Original app assets — NEVER commit
+assets/
+fonts/
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.ico
+*.svg
+*.jpg
+*.jpeg
+*.gif
+*.png
+
+# README demonstration media is explicitly allowed
+!media/
+!media/**
+
+# Builds
+build/
+dist/
+*.spec
+*.exe
+__pycache__/
+*.py[cod]
+
+# Archives / release binaries
+*.zip
+*.7z
+*.rar
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
