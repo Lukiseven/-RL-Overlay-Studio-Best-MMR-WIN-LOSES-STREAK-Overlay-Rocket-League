@@ -1,68 +1,90 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="dark">
-<title>RL Overlay Studio · Live Demo</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
+<title>RL Overlay Studio · Beta 8.46 Interactive Presentation</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#fff}
-body{min-height:100vh;display:grid;place-items:center;overflow:hidden;background:
-radial-gradient(circle at 22% 18%,rgba(28,120,255,.14),transparent 34%),
-radial-gradient(circle at 82% 78%,rgba(255,92,18,.12),transparent 36%),
-#080b12}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent)}
-.shell{width:min(96vw,1500px);min-height:82vh;display:grid;grid-template-rows:auto 1fr auto;gap:22px;padding:26px}
-.top,.bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:3}
-.brand{font-weight:900;letter-spacing:-.02em}.brand small{display:block;color:#8290a8;font-size:11px;text-transform:uppercase;letter-spacing:.16em;margin-top:5px}
-.pill{border:1px solid rgba(255,255,255,.12);background:rgba(9,13,23,.72);backdrop-filter:blur(18px);border-radius:999px;padding:9px 13px;color:#aeb9cc;font-size:12px;text-decoration:none}
-.stage{position:relative;display:grid;place-items:center;min-height:58vh}
-.glow{position:absolute;width:min(65vw,760px);height:min(34vw,420px);border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(74,118,255,.17),rgba(147,55,255,.08) 48%,transparent 72%);animation:breathe 5s ease-in-out infinite}
-.demo{position:relative;z-index:2;max-width:100%;max-height:66vh;object-fit:contain;filter:drop-shadow(0 26px 42px rgba(0,0,0,.5));transform-origin:center;animation:showcase 8s cubic-bezier(.22,.75,.2,1) infinite}
-.caption{font-size:12px;color:#7f8da5}.caption b{color:#d7def0}.links{display:flex;gap:8px;flex-wrap:wrap}
-@keyframes showcase{0%{opacity:0;transform:translateY(28px) scale(.94)}10%{opacity:1;transform:translateY(0) scale(1)}42%{transform:translateY(-6px) scale(1.012)}68%{transform:translateY(3px) scale(.998)}88%{opacity:1;transform:translateY(0) scale(1.006)}100%{opacity:0;transform:translateY(-8px) scale(.985)}}
-@keyframes breathe{0%,100%{opacity:.5;transform:scale(.92)}50%{opacity:1;transform:scale(1.08)}}
-@media(max-width:700px){.shell{padding:16px;min-height:92vh}.top{align-items:flex-start}.top .pill{display:none}.stage{min-height:62vh}.demo{max-height:62vh}.bottom{align-items:flex-end}}
-@media(prefers-reduced-motion:reduce){.demo,.glow{animation:none}}
-</style>
-</head>
-<body>
-<main class="shell">
-  <header class="top">
-    <div class="brand">⚡ RL Overlay Studio<small>Beta 8.46 · Presentation Demo</small></div>
-    <a class="pill" href="./">All demos</a>
-  </header>
-  <section class="stage">
-    <div class="glow"></div>
-    <img id="demo" class="demo" alt="">
-  </section>
-  <footer class="bottom">
-    <div class="caption"><b id="title">Live Demo</b><br><span id="desc">Flattened presentation render · no production API or private logic</span></div>
-    <div class="links">
-      <a class="pill" href="https://discord.gg/Qed73c5kd9" target="_blank" rel="noopener">Discord</a>
-      <a class="pill" href="https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest">Latest Release</a>
-    </div>
-  </footer>
-</main>
-<script>
-const views={
- application_ui:["Main application","application_ui.png","Desktop interface and session controls"],
- overlay_banner:["Classic Banner","overlay_banner.png","Wins · Losses · MMR · Streak"],
- overlay_vertical:["Vertical Compact","overlay_vertical.png","Compact vertical stream presentation"],
- overlay_horizontal:["Horizontal Compact","overlay_horizontal.png","Compact horizontal stream presentation"],
- premium_rank_tower:["Premium Rank Tower","premium_rank_tower.png","Premium rank progression presentation"],
- players_mmr:["Players MMR","players_mmr.png","Lobby/player MMR presentation"],
- showmatch:["Showmatch","showmatch.png","BO3 / BO5 / BO7 / BO9 presentation"],
- ingame_dock:["In‑Game Dock","ingame_dock.png","Radial dock and quick controls"]
+:root{--bg:#090e17;--panel:#101a2a;--card:#18263a;--border:#293b56;--white:#f4f7ff;--muted:#9bacc5;--blue:#259eff;--cyan:#45d6ee;--violet:#8d70ff;--green:#49e2aa;--red:#ff6b83;--orange:#ffa459;--gold:#ffd18a}
+*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;min-height:100vh;color:var(--white);font-family:Montserrat,Inter,system-ui,Arial,sans-serif;background:radial-gradient(ellipse at 50% 0%,#182136 0%,#090e17 60%)}button,a{font:inherit}
+.container{width:min(1440px,95vw);margin:auto;padding:23px 0 40px}
+header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;margin-bottom:14px}.brand{color:inherit;text-decoration:none;font-weight:900;font-size:18px}.brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:.12em;margin-top:6px}.links{display:flex;gap:9px;flex-wrap:wrap}.link{border-radius:999px;padding:9px 14px;background:#141e30;border:1px solid var(--border);text-decoration:none;color:var(--white);font-size:12px;font-weight:750}
+.title{font-size:clamp(28px,4.4vw,47px);letter-spacing:-.05em;margin:25px 0 8px}.explain{font-size:13px;color:var(--muted);line-height:1.5;margin:0 0 20px}
+.modebar,.states{display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;padding:0 0 12px}.modebar button,.states button,.switch{background:#151f30;border:1px solid #30415d;color:var(--muted);padding:10px 13px;border-radius:12px;white-space:nowrap;font-weight:750;font-size:12px;cursor:pointer}.modebar .active,.states .active{background:#363369;border-color:#8673ff;color:#fff}
+.stage{position:relative;min-height:520px;border:1px solid #243149;border-radius:26px;display:grid;place-items:center;padding:30px 20px;background:linear-gradient(150deg,#0e1420,#0b101a);overflow:hidden}
+.stage.no-backdrop{background:transparent;border-color:transparent}.stage.no-backdrop:before{content:none}.stage-content{width:100%;display:grid;place-items:center;animation:enter .5s cubic-bezier(.2,.7,.25,1) both}
+@keyframes enter{from{opacity:.2;transform:translateY(16px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.mock{background:var(--panel);border:1px solid #34435c;box-shadow:0 25px 80px #0007;border-radius:23px}
+.details{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;margin-top:14px;color:#8292ac;font-size:11px;line-height:1.6}.details strong{color:#cbd7ec}.details a{color:#b3a6ff}
+.pip{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--green);margin-right:7px}.badge{display:inline-flex;align-items:center;border:1px solid currentColor;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:850;white-space:nowrap}
+.hdr{font-weight:850;letter-spacing:.15em;color:var(--muted);font-size:11px;text-transform:uppercase}.number{font-size:44px;font-weight:950;letter-spacing:-.06em}.muted{color:var(--muted)}.rank-icon{width:70px;height:78px;clip-path:polygon(50% 0%,88% 25%,79% 77%,50% 100%,21% 77%,12% 25%);background:linear-gradient(145deg,#95eeff,#4b71d3 55%,#233e87);display:grid;place-items:center;box-shadow:inset 0 0 0 6px #aacfff}.rank-icon span{font-size:28px;font-weight:900;color:white}.gradient{background:linear-gradient(135deg,var(--violet),var(--cyan));height:8px;width:100%;border-radius:10px}
+.stream{width:min(1080px,100%);overflow:hidden;position:relative}.stream.banner,.stream.horizontal{padding:26px 28px;display:flex;align-items:center;gap:24px}.stream .rank-block{display:flex;align-items:center;gap:17px;flex:1.2;min-width:0}.rank-name{font-size:23px;font-weight:950;letter-spacing:-.035em}.rank-mmr{font-weight:900;color:var(--cyan);font-size:20px;margin-top:7px}.stream .kpi{border-left:1px solid var(--border);min-width:115px;padding-left:23px}.kpi .hdr{margin-bottom:9px}.kpi .number{font-size:39px}
+.stream.vertical,.stream.tower{max-width:365px;padding:22px;display:flex;align-items:center;flex-direction:column;gap:14px}.stream.vertical .rank-name,.stream.tower .rank-name{text-align:center}.vertical .metric{width:100%;display:flex;align-items:center;justify-content:space-between;background:var(--card);border-radius:10px;padding:12px 15px}.vertical .metric b{font-size:25px}
+.stream.horizontal{gap:15px}.horizontal .rank-name{font-size:19px}.horizontal .kpi{min-width:100px}.tower .tier{display:flex;align-items:center;gap:14px;background:var(--card);width:100%;padding:9px 14px;border:1px solid var(--border);border-radius:11px}.tower .tier.active{border-color:var(--cyan);background:#24385b}.tier .tiny{width:28px;height:32px;clip-path:polygon(50% 0,90% 24%,75% 82%,50% 100%,25% 82%,10% 24%);background:linear-gradient(#73cfff,#334ed1)}
+.showcase-label{position:absolute;top:14px;right:18px;color:#687e9f;font-size:10px;font-weight:850;letter-spacing:.15em}
+.pop{margin-top:15px;background:#1e3047;border:1px solid var(--blue);border-radius:12px;padding:11px 22px;font-weight:900;color:var(--cyan);text-align:center;animation:enter .4s ease-out both}
+.app{display:grid;grid-template-columns:182px 1fr;width:min(1050px,100%);min-height:460px;overflow:hidden}.app aside{background:#0f1929;border-right:1px solid var(--border);padding:21px 14px}.app aside strong{display:block;font-size:18px;line-height:1.1;margin-bottom:25px}.app aside div.nav{padding:12px 9px;margin:6px 0;border-radius:9px;color:var(--muted);font-size:11px;font-weight:900}.app aside div.nav.on{background:#2c3565;color:#fff}.app main{padding:24px;min-width:0}.app .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.app .c{padding:17px;background:var(--card);border:1px solid var(--border);border-radius:14px}.app .c b{font-size:28px;display:block;margin-top:7px}.app .wide{grid-column:span 3}.app .v{font-size:25px;font-weight:900}.app .rows{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}.app .r{padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#111c2b;font-size:13px}.switch{background:#273a65;color:white}
+.players{width:min(1050px,100%);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.team{padding:16px}.team h3{margin:0 0 11px;font-size:18px}.player{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:12px;margin-top:9px;display:flex;align-items:center;justify-content:space-between;gap:10px}.player b{font-size:14px}.player small{display:block;color:var(--muted);font-size:10px;margin-top:5px}.player strong{color:var(--cyan);font-size:19px}.emblem{display:inline-grid;place-items:center;width:35px;height:35px;background:#263e5d;color:var(--cyan);border-radius:9px;font-weight:900;margin-right:9px}
+.match{width:min(1030px,100%);padding:30px}.series{display:flex;align-items:center;justify-content:space-between;gap:14px}.series .side{background:#193455;border:1px solid #327bc7;flex:1;padding:20px 12px;border-radius:14px;text-align:center}.series .side.orange{background:#4b2b1d;border-color:#b8773a}.side .number{font-size:70px}.center{text-align:center;min-width:150px}.center strong{font-size:22px}.dots{display:flex;gap:10px;justify-content:center;margin-top:23px}.dots span{height:13px;width:13px;border-radius:50%;background:#354966}
+.dock{display:flex;align-items:center;gap:42px;max-width:1150px}.radial{width:270px;height:310px;position:relative;flex-shrink:0}.radial .hub{position:absolute;top:121px;left:102px;border-radius:50%;width:72px;height:72px;background:var(--blue);display:grid;place-items:center;font-size:24px;font-weight:950}.bubble{position:absolute;width:57px;height:57px;border-radius:50%;display:grid;place-items:center;background:var(--panel);border:1px solid var(--border);font-size:13px;font-weight:950}.dpanel{padding:25px;max-width:740px;min-width:420px}.dpanel .row{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);border-radius:10px;padding:12px;margin:9px 0;background:var(--card);gap:20px;font-size:12px}.dpanel .row strong{color:var(--cyan)}.dpanel h3{margin:0 0 16px}.dpanel .tabs{display:flex;gap:8px;flex-wrap:wrap}.dpanel .tabs span{border-radius:10px;padding:9px;background:#283457;font-size:11px;font-weight:900}
+.hidden-demo{border:1px dashed #62728b;padding:35px 50px;border-radius:18px;color:var(--muted);font-weight:850}
+@media(max-width:950px){.app{grid-template-columns:140px 1fr}.app aside{padding:14px 7px}.app aside strong{font-size:13px}.app main{padding:14px}.stream.banner,.stream.horizontal{gap:10px;padding:20px 10px}.rank-icon{width:45px;height:52px}.rank-name{font-size:16px}.kpi .number,.number{font-size:30px!important}.kpi{min-width:68px!important;padding-left:10px!important}.hdr{font-size:9px}.players{gap:8px}.dock{gap:10px}.dpanel{min-width:0}}
+@media(max-width:640px){.stage{min-height:390px;padding:20px 8px}.app{grid-template-columns:108px 1fr}.app .cards{grid-template-columns:repeat(2,1fr)}.app .wide{grid-column:span 2}.app .rows{grid-template-columns:1fr}.stream.banner,.stream.horizontal{flex-wrap:wrap}.stream .rank-block{flex-basis:100%}.players{grid-template-columns:1fr}.dock{flex-direction:column}.radial{transform:scale(.72);margin:-26px 0}.dpanel{width:100%}.series .side{padding:10px 5px}.center{min-width:65px}.center strong{font-size:13px}.stage-content{overflow:hidden}}
+@media(prefers-reduced-motion:reduce){.stage-content,.pop{animation:none}}
+</style></head>
+<body><div class="container">
+<header><a class="brand" href="./">RL OVERLAY STUDIO<small>Beta 8.46 · Interactive HTML presentations</small></a><nav class="links"><a class="link" href="./">All demos</a><a class="link" href="https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest">Release</a><a class="link" href="https://discord.gg/Qed73c5kd9">Discord</a></nav></header>
+<h1 class="title" id="title">Interactive preview</h1><p class="explain" id="desc">Artwork and behavior reconstructed from Beta 8.46 feature documentation. Fictional example values.</p>
+<div class="modebar" id="modes"></div><div class="states" id="states"></div>
+<section class="stage" id="stage"><div class="stage-content" id="content"></div></section>
+<div class="details"><span><strong>Interactive, reconstructed presentation.</strong> No proprietary app templates, rank assets, credentials, private API, MMR calculations or production backend.</span><span><a href="./">Gallery</a> · <a href="https://github.com/Lukiseven/RL-Overlay-Studio">Audit source</a></span></div>
+</div><script>
+(function(){
+"use strict";
+var data={
+ application_ui:{name:"Desktop Application",about:"Five application pages, sessions, overlay settings, diagnostics and stream options.",states:["dashboard","overlay","sessions","options","settings"]},
+ overlay_banner:{name:"Classic Banner",about:"Rank, MMR, W/L, streak, Top Rank and event presentations.",states:["neutral","win_streak","loss_streak","top5","top100","top200","no_top","mmr_missing","ssl","rank_up","rank_down","popup_bottom","popup_top","popup_left","popup_right","freeplay","private","direct_game"]},
+ overlay_vertical:{name:"Vertical Compact",about:"Premium compact vertical layout with streak, MMR and W/L.",states:["neutral","win_streak","loss_streak","top5","top100","top200","mmr_missing","rank_up","rank_down","freeplay"]},
+ overlay_horizontal:{name:"Horizontal Compact",about:"Premium compact horizontal layout with rank and match events.",states:["neutral","win_streak","loss_streak","top5","top100","top200","mmr_missing","rank_up","rank_down"]},
+ premium_rank_tower:{name:"Premium Rank Tower",about:"Rank progression visualization with Top Rank and premium state.",states:["neutral","top5","top100","top200","no_top","rank_up","rank_down","mmr_missing"]},
+ players_mmr:{name:"Players MMR",about:"Two teams, platform cues, rank/division/MMR and join/leave position states.",states:["right","left","departed","hidden"]},
+ showmatch:{name:"Showmatch",about:"BO3, BO5, BO7, BO9, series progression and winner presentation.",states:["bo3","bo5","bo7","bo9","winner_blue","winner_orange","hidden"]},
+ ingame_dock:{name:"In-game Radial Dock",about:"Quick-action radial layout, dock controls and premium gating.",states:["opened","closed","premium_on","premium_off"]}
 };
-const q=new URLSearchParams(location.search).get("view")||"application_ui";
-const v=views[q]||views.application_ui;
-document.title="RL Overlay Studio · "+v[0];
-document.getElementById("title").textContent=v[0];
-document.getElementById("desc").textContent=v[2]+" · presentation-only render";
-const img=document.getElementById("demo");
-img.src="assets/"+v[1]; img.alt="RL Overlay Studio · "+v[0];
-img.addEventListener("click",()=>{img.style.animation="none";void img.offsetHeight;img.style.animation=""});
-</script>
-</body>
-</html>
+var current=new URLSearchParams(location.search).get("view")||"application_ui";if(!data[current])current="application_ui";
+var state=data[current].states[0], title=document.getElementById("title"),desc=document.getElementById("desc"),stage=document.getElementById("content"),states=document.getElementById("states"),modes=document.getElementById("modes");
+var ids=Object.keys(data);
+function label(x){return x.replace(/_/g," ").toUpperCase()}
+function cls(x,c){return '<span class="badge" style="color:'+c+'">'+x+'</span>'}
+function rankState(){var top=state==="top5"?"TOP 3":state==="top200"?"TOP 147":state==="no_top"?"":state==="top100"?"TOP 86":"TOP 86";var color=state==="top5"?"var(--red)":state==="top200"?"#cbd9ef":"var(--gold)";return {name:state==="ssl"?"SUPERSONIC LEGEND":state==="mmr_missing"?"UNRANKED":"CHAMPION III",mmr:state==="mmr_missing"?"—":state==="ssl"?"1 910":"1 436",top:top,color:color,streak:state==="loss_streak"?"−3":"+5"}}
+function showRank(d){return '<div class="rank-block"><div class="rank-icon"><span>III</span></div><div><div class="hdr">Ranked · 2V2</div><div class="rank-name">'+d.name+'</div><div class="rank-mmr">'+d.mmr+' MMR</div></div></div>'}
+function renderOverlay(){var d=rankState(),isV=current==="overlay_vertical",isH=current==="overlay_horizontal",isTower=current==="premium_rank_tower",out="";
+if(isTower){out='<div class="stream tower mock"><div class="gradient"></div><div class="hdr">SEASON RANK PROGRESSION</div>'+["DIAMOND III","CHAMPION I","CHAMPION II","CHAMPION III","GRAND CHAMPION I"].map(function(r,i){return '<div class="tier '+(i===3?'active':'')+'"><div class="tiny"></div><div><b>'+r+'</b><div class="muted">'+(1094+i*113)+' MMR</div></div></div>'}).join("")+(d.top?cls(d.top,d.color):"")+'</div>'}else if(isV){
+out='<div class="stream vertical mock"><div class="gradient"></div><div class="rank-icon"><span>III</span></div><div class="rank-name">'+d.name+'</div><div class="rank-mmr">'+d.mmr+' MMR</div>'+(d.top?cls(d.top,d.color):"")+([["STREAK",d.streak,"var(--orange)"],["MMR",d.mmr,"var(--cyan)"],["WINS","24","var(--green)"],["LOSSES","11","var(--red)"]].map(function(r){return '<div class="metric"><span class="hdr">'+r[0]+'</span><b style="color:'+r[2]+'">'+r[1]+'</b></div>'}).join(""))+'</div>'}else{out='<div class="stream '+(isH?"horizontal":"banner")+' mock">'+showRank(d)+(d.top?cls(d.top,d.color):"")+([["WINS","24","var(--green)"],["LOSSES","11","var(--red)"],["STREAK",d.streak,"var(--orange)"]].map(function(r){return '<div class="kpi"><div class="hdr">'+r[0]+'</div><div class="number" style="color:'+r[2]+'">'+r[1]+'</div></div>'}).join(""))+'</div>';}
+if(state.startsWith("popup"))out+='<div class="pop">+18 MMR · '+label(state)+'</div>';
+if(state==="rank_up"||state==="rank_down")out+='<div class="pop">'+(state==="rank_up"?"▲ RANK UP":"▼ RANK DOWN")+' · EXAMPLE ANIMATION</div>';
+if(state==="win_streak"||state==="loss_streak")out+='<div class="pop" style="color:'+(state==="win_streak"?"var(--orange)":"var(--cyan)")+'">'+(state==="win_streak"?"WIN STREAK":"LOSS STREAK")+'</div>';
+if(["freeplay","private","direct_game"].includes(state))out+='<div class="pop">'+label(state)+' · SESSION CONTEXT</div>';
+return out}
+function appPage(){var pages=["dashboard","overlay","sessions","options","settings"],nav=["DASHBOARD","OBS / TIKTOK","SESSIONS","OVERLAY OPTIONS","SETTINGS"],s='<div class="app mock"><aside><strong>RL OVERLAY<br>STUDIO</strong>'+pages.map(function(p,i){return '<div class="nav '+(state===p?"on":"")+'">'+nav[i]+'</div>'}).join('')+'<div class="badge" style="color:var(--violet);margin-top:40px">PREMIUM</div></aside><main><div class="hdr">'+label(state)+' · BETA 8.46</div><h2 style="margin:9px 0 21px;font-size:27px">'+nav[pages.indexOf(state)]+'</h2>';
+if(state==="dashboard")s+='<div class="cards"><div class="c"><div class="hdr">Wins</div><b style="color:var(--green)">24</b></div><div class="c"><div class="hdr">Losses</div><b style="color:var(--red)">11</b></div><div class="c"><div class="hdr">Streak</div><b style="color:var(--orange)">+5</b></div><div class="c wide"><div class="hdr">Live game status</div><div class="v">CHAMPION III · 1 436 MMR</div><p class="muted">Top rank · Session telemetry · Connection diagnostics</p></div></div>';
+if(state==="overlay")s+='<div class="rows">'+["Classic Banner","Vertical Compact · Premium","Horizontal Compact · Premium","Premium Rank Tower","Players MMR","Showmatch BO3 / 5 / 7 / 9"].map(function(t){return '<div class="r">'+t+'</div>'}).join('')+'</div><p class="muted">OBS / TikTok Live Studio · Browser Source · Double-PC relay</p>';
+if(state==="sessions")s+='<div class="rows">'+["Session Wins 24","Session Losses 11","Match history","Playlist lock","Reset session","Replay / Tournament exclusions"].map(function(t){return '<div class="r">'+t+'</div>'}).join('')+'</div>';
+if(state==="options")s+='<div class="rows">'+["MMR popups · Top / Bottom / Left / Right","Streak effects · Win / Loss","In-game Dock · Off by default","Top Rank · 1–200","Showmatch shortcut","Players MMR positions"].map(function(t){return '<div class="r">'+t+'</div>'}).join('')+'</div>';
+if(state==="settings")s+='<div class="rows">'+["English / Français","Discord access / Premium","StatsAPI diagnostics","Local HTTP / WebSocket","Release auto-update","Session persistence"].map(function(t){return '<div class="r">'+t+'</div>'}).join('')+'</div>';
+return s+'</main></div>'}
+function players(){if(state==="hidden")return '<div class="hidden-demo">PLAYERS MMR HIDDEN</div>';var teams=["BLUE TEAM","ORANGE TEAM"];var a='<div class="players" style="'+(state==="left"?"direction:rtl":"")+'">';
+teams.forEach(function(name,i){a+='<div class="team mock" style="border-top:4px solid '+(i?"var(--orange)":"var(--blue)")+'"><h3>'+name+'</h3>';for(var j=0;j<3;j++){if(state==="departed"&&i===1&&j===2)continue;a+='<div class="player"><div><span class="emblem">'+(j%2?"E":"S")+'</span><b>Player '+(i*3+j+1)+'</b><small>CHAMPION '+(j===2?"II":"III")+' · DIV '+(j+1)+'</small></div><strong>'+(1436+i*42+j*37)+'</strong></div>'}a+='</div>'});return a+'</div>'}
+function showmatch(){if(state==="hidden")return '<div class="hidden-demo">SHOWMATCH HIDDEN</div>';var b=state.startsWith("bo")?parseInt(state.slice(2)):5,completed=state.startsWith("winner"),blue=state==="winner_blue"?Math.ceil(b/2):state==="winner_orange"?1:2,orange=state==="winner_orange"?Math.ceil(b/2):state==="winner_blue"?1:1;var a='<div class="match mock"><div class="series"><div class="side"><div class="hdr">Blue Team</div><div class="number">'+blue+'</div></div><div class="center"><div class="hdr">BEST OF '+b+'</div><strong>'+ (completed?"SERIES COMPLETE":"GAME "+Math.min(b,blue+orange+1))+'</strong><div style="font-size:40px">VS</div></div><div class="side orange"><div class="hdr">Orange Team</div><div class="number">'+orange+'</div></div></div><div class="dots">';
+for(var i=0;i<b;i++)a+='<span style="background:'+(i<blue?"var(--blue)":i<blue+orange?"var(--orange)":"#354966")+'"></span>';return a+'</div></div>'}
+function dock(){var closed=state==="closed",off=state==="premium_off";var icons=[["W",94,8],["L",194,67],["M",194,185],["S",94,250],["O",1,185],["P",1,67]],a='<div class="dock"><div class="radial">';
+if(!closed)icons.forEach(function(c){a+='<div class="bubble" style="left:'+c[1]+'px;top:'+c[2]+'px">'+c[0]+'</div>'});a+='<div class="hub">RL</div></div>';if(closed)return a+'<div class="hidden-demo">DOCK COLLAPSED · 60px LAUNCHER</div></div>';
+a+='<div class="dpanel mock"><h3>IN-GAME CONTROLS '+cls(off?"PREMIUM OFF":"PREMIUM ON",off?"var(--red)":"var(--gold)")+'</h3><div class="tabs"><span>ACTIONS</span><span>OVERLAY</span><span>APPEARANCE</span><span>PLAYERS</span><span>SESSIONS</span></div>';
+[["Win / Loss overlay","Visible"],["Showmatch controls","Visible"],["Main overlay","Classic Banner"],["Players MMR","On"],["Retractable Dock","Off by default"],["Premium elements",off?"Restricted":"Available"]].forEach(function(c){a+='<div class="row"><span>'+c[0]+'</span><strong>'+c[1]+'</strong></div>'});return a+'</div></div>'}
+function draw(){title.textContent=data[current].name;desc.textContent=data[current].about+' Fictional presentation data · source features mapped from Beta 8.46.';document.title="RL Overlay Studio · "+data[current].name;
+modes.innerHTML=ids.map(function(id){return '<button data-mode="'+id+'" class="'+(current===id?"active":"")+'">'+data[id].name+'</button>'}).join("");
+states.innerHTML=data[current].states.map(function(x){return '<button data-state="'+x+'" class="'+(state===x?"active":"")+'">'+label(x)+'</button>'}).join("");
+stage.innerHTML='<div class="stage-content">'+(current==="application_ui"?appPage():current==="players_mmr"?players():current==="showmatch"?showmatch():current==="ingame_dock"?dock():renderOverlay())+'</div><span class="showcase-label">DEMO STATE · '+label(state)+'</span>';
+modes.querySelectorAll("button").forEach(function(b){b.onclick=function(){current=b.dataset.mode;state=data[current].states[0];history.replaceState(null,"","demo.html?view="+current);draw()}});
+states.querySelectorAll("button").forEach(function(b){b.onclick=function(){state=b.dataset.state;draw()}});
+}
+draw();
+})();
+</script></body></html>
