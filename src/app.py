@@ -242,7 +242,7 @@ def show_already_running_message() -> None:
 # - RLOS_DISCORD_GUILD_ID
 # Optionnel mais recommandé pour confirmer côté serveur :
 # - RLOS_DISCORD_BOT_TOKEN
-DISCORD_INVITE_URL = "https://discord.gg/WErmh9naX5"
+DISCORD_INVITE_URL = "https://discord.gg/Qed73c5kd9"
 DISCORD_REDIRECT_PORT = int(os.environ.get("RLOS_DISCORD_REDIRECT_PORT", "49126") or "49126")
 DISCORD_REDIRECT_PATH = "/discord/callback"
 DISCORD_REDIRECT_URI = f"http://127.0.0.1:{DISCORD_REDIRECT_PORT}{DISCORD_REDIRECT_PATH}"
