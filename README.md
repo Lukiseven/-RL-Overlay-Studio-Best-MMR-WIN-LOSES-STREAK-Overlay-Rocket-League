@@ -1,14 +1,14 @@
 # RL Overlay Studio
 
-### Rocket League overlays for players, content creators and streamers
+### Python desktop application for Rocket League players, content creators and streamers
 
-**Beta 8.46 · Windows 10/11 · OBS · TikTok Live Studio · In-Game · Discord**
+**Beta 8.46 · Python · PyQt6 · Windows 10/11 · OBS · TikTok Live Studio · In-Game · Discord**
 
-[![Version](https://img.shields.io/badge/version-Beta%208.46-7C5CFC?style=for-the-badge)](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) ![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4?style=for-the-badge&logo=windows11&logoColor=white) ![Public audit](https://img.shields.io/badge/source-public%20audit-22C55E?style=for-the-badge)
+[![Version](https://img.shields.io/badge/version-Beta%208.46-7C5CFC?style=for-the-badge)](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) ![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4?style=for-the-badge&logo=windows11&logoColor=white) ![Python](https://img.shields.io/badge/Python-PyQt6-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Public audit](https://img.shields.io/badge/source-public%20audit-22C55E?style=for-the-badge)
 
 **[Download the latest release](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest)** · **[Join our Discord](https://discord.gg/Qed73c5kd9)** · **[Source audit scope](AUDIT_SCOPE.md)**
 
-RL Overlay Studio is an external Windows companion for Rocket League. It tracks session activity and displays rank/MMR, wins, losses, streaks and match information through customizable overlays. Stream to OBS or TikTok Live Studio, or use optional In-Game components. The application does **not** inject code into Rocket League.
+RL Overlay Studio is a **Windows desktop application developed in Python, using PyQt6 and PyQt6 WebEngine**, that works as an external companion for Rocket League. It tracks session activity and displays rank/MMR, wins, losses, streaks and match information through customizable overlays. Stream to OBS or TikTok Live Studio, or use optional In-Game components. The application does **not** inject code into Rocket League.
 
 > **About these screenshots:** The streamer overlays, Players MMR and Showmatch are flattened Chromium renders of the original Beta 8.46 HTML/CSS/JavaScript templates. Desktop application pages and Dock panels are accurate **HTML presentations reconstructed from the PyQt6 source**, not direct Windows application captures. The corrected Dock geometry follows the original uncompiled Beta 8.46 source. Player names, scores, MMR and ranks are sample values. All screenshots are static, with no live API requests.
 
@@ -184,7 +184,7 @@ flowchart LR
     APP -->|"Network relay"| STREAM["OBS / TikTok Live Studio"]
 ```
 
-The app is built with **Python, PyQt6, PyQt6 WebEngine, HTML/CSS/JavaScript, local HTTP/WebSockets, and Discord OAuth**.
+**Core application:** Python with PyQt6 for the Windows interface and PyQt6 WebEngine for embedded web content. **Overlay rendering:** HTML, CSS and JavaScript. **Communication and integrations:** local HTTP/WebSockets, Rocket League data interfaces and Discord OAuth. The distributed application is a Windows executable; the public `src/` directory is a sanitized audit copy, not the complete buildable Python project.
 
 ### Public audit source
 
