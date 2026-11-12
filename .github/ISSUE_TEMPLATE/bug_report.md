@@ -7,7 +7,7 @@ assignees: ''
 ---
 
 **Version**
-Beta 8.46 / other:
+Beta 8.49 / other:
 
 **Windows version**
 

@@ -2,21 +2,21 @@
 
 ### Python desktop application for Rocket League players, content creators and streamers
 
-**Beta 8.46 · Python · PyQt6 · Windows 10/11 · OBS · TikTok Live Studio · In-Game · Discord**
+**Beta 8.49 · Python · PyQt6 · Windows 10/11 · OBS · TikTok Live Studio · In-Game · Discord**
 
-[![Version](https://img.shields.io/badge/version-Beta%208.46-7C5CFC?style=for-the-badge)](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) ![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4?style=for-the-badge&logo=windows11&logoColor=white) ![Python](https://img.shields.io/badge/Python-PyQt6-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Public audit](https://img.shields.io/badge/source-public%20audit-22C55E?style=for-the-badge)
+[![Version](https://img.shields.io/badge/version-Beta%208.49-7C5CFC?style=for-the-badge)](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) ![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4?style=for-the-badge&logo=windows11&logoColor=white) ![Python](https://img.shields.io/badge/Python-PyQt6-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Public audit](https://img.shields.io/badge/source-public%20audit-22C55E?style=for-the-badge)
 
 **[Download the latest release](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest)** · **[Join our Discord](https://discord.gg/Qed73c5kd9)** · **[Source audit scope](AUDIT_SCOPE.md)**
 
 RL Overlay Studio is a **Windows desktop application developed in Python, using PyQt6 and PyQt6 WebEngine**, that works as an external companion for Rocket League. It tracks session activity and displays rank/MMR, wins, losses, streaks and match information through customizable overlays. Stream to OBS or TikTok Live Studio, or use optional In-Game components. The application does **not** inject code into Rocket League.
 
-> **About these screenshots:** The streamer overlays, Players MMR and Showmatch are flattened Chromium renders of the original Beta 8.46 HTML/CSS/JavaScript templates. Desktop application pages and Dock panels are accurate **HTML presentations reconstructed from the PyQt6 source**, not direct Windows application captures. The corrected Dock geometry follows the original uncompiled Beta 8.46 source. Player names, scores, MMR and ranks are sample values. All screenshots are static, with no live API requests.
+> **About these screenshots:** The streamer overlays, Players MMR and Showmatch are flattened Chromium renders of the original Beta 8.49 HTML/CSS/JavaScript templates. Desktop application pages and Dock panels are accurate **HTML presentations reconstructed from the PyQt6 source**, not direct Windows application captures. The corrected Dock geometry follows the original uncompiled Beta 8.49 source. Player names, scores, MMR and ranks are sample values. All screenshots are static, with no live API requests.
 
 ---
 
 ## 01 · Application overview
 
-![RL Overlay Studio Beta 8.46 — complete desktop application and live overlay preview](media/readme/captures/application_overview.png)
+![RL Overlay Studio Beta 8.49 — complete desktop application and live overlay preview](media/readme/captures/application_overview.png)
 
 ### Dashboard
 
@@ -26,7 +26,7 @@ Session wins/losses, current streak, rank and MMR, match status, connection indi
 
 ### Application pages and configuration
 
-The desktop interface includes OBS/TikTok Live Studio controls, session management, overlay options and diagnostics. The source screenshots preserve the layout and controls represented in the Beta 8.46 application.
+The desktop interface includes OBS/TikTok Live Studio controls, session management, overlay options and diagnostics. The source screenshots preserve the layout and controls represented in the Beta 8.49 application.
 
 **OBS and TikTok Live Studio configuration**
 
@@ -136,9 +136,9 @@ Showmatch presentation supports **BO3, BO5, BO7 and BO9**, series scores, curren
 
 ---
 
-## 06 · In-Game Dock — original Beta 8.46 geometry
+## 06 · In-Game Dock — original Beta 8.49 geometry
 
-The following **seven static presentations** retain the corrected radial-button positions from the uncompiled Beta 8.46 `InGameQuickMenu` source rather than approximated semicircle positions.
+The following **seven static presentations** retain the corrected radial-button positions from the uncompiled Beta 8.49 `InGameQuickMenu` source rather than approximated semicircle positions.
 
 - **Main Menu:** 60 × 60 px.
 - **Five categories:** 48 × 48 px, radius 108 px; angles **118°, 149°, 180°, 211° and 242°**.
@@ -188,7 +188,7 @@ flowchart LR
 
 ### Public audit source
 
-This repository provides a **sanitized, non-buildable security-review copy derived from Beta 8.46** in [`src/`](src/). It exposes the application's high-level structure, local networking, diagnostics, configuration, authentication flow and update architecture while withholding proprietary ranking/MMR internals, private endpoints, keys and production artwork.
+This repository provides a **sanitized, non-buildable security-review copy derived from Beta 8.49** in [`src/`](src/). It exposes the application's high-level structure, local networking, diagnostics, configuration, authentication flow and update architecture while withholding proprietary ranking/MMR internals, private endpoints, keys and production artwork.
 
 - [Audit scope](AUDIT_SCOPE.md)
 - [Redactions and exclusions](REDACTIONS.md)
@@ -200,7 +200,7 @@ The published screenshots are flattened, demonstration-only presentations. Their
 
 ---
 
-## 09 · Beta 8.46 release integrity
+## 09 · Beta 8.49 release integrity
 
 [Release verification instructions](RELEASE_VERIFICATION.md)
 
@@ -211,6 +211,17 @@ EXE SHA-256: c7aaea996bbfafb9fe1c2aa11e2f8cd75a8a4557c7c847cc1dfc2418fb9f7e87
 
 ---
 
-**RL Overlay Studio · Beta 8.46** — Built for the Rocket League community.
+**RL Overlay Studio · Beta 8.49** — Built for the Rocket League community.
 
 [Latest release](https://github.com/Lukiseven/RL-Overlay-Studio/releases/latest) · [Discord](https://discord.gg/Qed73c5kd9)
+
+
+---
+
+## 🆕 Beta 8.49 audit update
+
+- **Beta 8.47:** local MMR fallback is represented in the audit surface, while acquisition/conversion internals remain redacted.
+- **Beta 8.48:** automatic stream visibility guard for private/tournament contexts and Rocket League focus state.
+- **Beta 8.49:** Honor Duel / Grudge Match (`PlaylistID 53`) is treated as **NO-STATS** so it cannot change Wins, Losses or Streak.
+
+The public repository remains intentionally non-buildable and does not contain production API credentials, private MMR endpoints, Discord IDs/tokens, VPS details, proprietary ranking tables, embedded overlay templates or protected visual assets.

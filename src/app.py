@@ -1,5 +1,5 @@
 # ============================================================================
-# RL Overlay Studio — PUBLIC AUDIT SOURCE — Beta 8.46
+# RL Overlay Studio — PUBLIC AUDIT SOURCE — Beta 8.49
 # ============================================================================
 # This is NOT the complete buildable source tree. It is a security-review copy.
 # Proprietary MMR/ranking/API logic, credentials/endpoints, embedded overlay UI
@@ -102,8 +102,8 @@ APP_NAME = "RL Overlay Studio"
 HTTP_PORT = 49124
 WS_PORT = 49125
 OVERLAY_NETWORK_PORT = 49127
-APP_VERSION = "Beta 8.46"
-APP_VERSION_LABEL = "Beta 8.46 By Luki7 / Eraclesss"
+APP_VERSION = "Beta 8.49"
+APP_VERSION_LABEL = "Beta 8.49 By Luki7 / Eraclesss"
 MMR_RANKUP_POPUP_DURATION_SECONDS = None  # [PUBLIC AUDIT REDACTION]
 RLS_STATUS_PROBE_STEAM_ID = "<REDACTED_ID>"  # [PUBLIC AUDIT REDACTION]
 PLAYERS_MMR_BROWSER_INPUT_VISIBLE_MS = None  # [PUBLIC AUDIT REDACTION]
@@ -304,7 +304,10 @@ DISCORD_RECHECK_INTERVAL_MS = 30000
 # Beta 8.28 : après un statut MMR orange, trois détections valides consécutives rétablissent le vert.
 # Beta 8.29 : serveur local des overlays auto-réparable et rechargement WebEngine uniquement après succès réel.
 # Beta 8.39 : relais LAN sécurisé initialement introduit pour le Mode Double PC.
-# Beta 8.46 : remplacement du domaine VPS API par <PRIVATE_MMR_SERVICE>.
+# Beta 8.46 : infrastructure MMR privée mise à jour (<PRIVATE_SERVICE_HOST>).
+# Beta 8.47 : fallback MMR local ajouté ; logique d’acquisition volontairement retirée du snapshot public.
+# Beta 8.48 : garde de visibilité Stream — privée/tournoi = InGame à 20 %, Browser Sources masquées ; hors focus RL = Browser Sources masquées.
+# Beta 8.49 : Honor Duel / Duel d’honneur (Playlist 53) explicitement NO-STATS.
 # Beta 8.45 : Dock rétractable désactivé par défaut + Browser Sources OBS/TikTok uniquement via relais LAN 49127.
 # Beta 8.45 : ce relais devient le transport unique des liens OBS/TikTok pour tous les utilisateurs.
 # Beta 8.30 : statut MMR consolidé sur toute la partie Ranked/Casual/Privée puis validé à MatchEnded.
@@ -736,6 +739,8 @@ PRIVATE_PLAYLIST_IDS = {6}
 # Beta 8.37 : les playlists Tournament 22/34 sont explicitement NO-STATS.
 # Elles ne doivent modifier ni Wins/Losses/Streak ni les statistiques de rencontre.
 TOURNAMENT_PLAYLIST_IDS = {22, 34}
+# Beta 8.49 : Honor Duel / Duel d’honneur (Grudge Match) est toujours NO-STATS.
+HONOR_DUEL_PLAYLIST_IDS = {53}
 
 PLAYLIST_ID_MAP = {}  # [PUBLIC AUDIT REDACTION]
 RANKED_PLAYLIST_IDS = {}  # [PUBLIC AUDIT REDACTION]
@@ -1358,6 +1363,20 @@ def _launch_line_is_replay_start(line: str) -> bool:
 def read_latest_launch_playlist_context(*args, **kwargs):
     """[PUBLIC AUDIT REDACTION] Proprietary MMR/API/ranking logic removed."""
     raise RuntimeError("This proprietary component is not included in the public audit source.")
+
+
+LOCAL_MMR_FALLBACK_MAX_AGE_SECONDS = None  # [PUBLIC AUDIT REDACTION]
+
+
+def _mmr_from_party_leader_mu(*args, **kwargs):
+    """[PUBLIC AUDIT REDACTION] Local MMR acquisition/conversion logic removed."""
+    raise RuntimeError("This proprietary component is not included in the public audit source.")
+
+
+def read_latest_launch_local_mmr_context(*args, **kwargs):
+    """[PUBLIC AUDIT REDACTION] Local MMR fallback parsing logic removed."""
+    raise RuntimeError("This proprietary component is not included in the public audit source.")
+
 
 def classify_launch_playlist_security_context(*args, **kwargs):
     """[PUBLIC AUDIT REDACTION] Proprietary MMR/API/ranking logic removed."""
@@ -2138,6 +2157,7 @@ def classify_rl_match_context(platform: str, players: Any, teams: Any, *payloads
     normalized_players = normalize_players_collection(players)
     player_count = count_distinct_players(normalized_players)
     playlist = extract_playlist_from_payload(*payloads)
+    playlist_id = extract_playlist_id_from_payload(*payloads)
     platform = normalize_runtime_platform(platform)
 
     has_match_guid = payload_has_match_guid(*payloads)
@@ -2146,6 +2166,18 @@ def classify_rl_match_context(platform: str, players: Any, teams: Any, *payloads
             "type": "freeplay",
             "reason": "JSON RLStats sans MatchGuid",
             "playlist": playlist,
+            "player_count": player_count,
+            "platform": platform,
+        }
+
+    # Playlist 53 peut également remonter directement dans StatsAPI.
+    # Elle est classée avant les heuristiques Ranked pour empêcher tout comptage.
+    if playlist_id in HONOR_DUEL_PLAYLIST_IDS:
+        return {
+            "type": "honor_duel",
+            "reason": f"Honor Duel / Duel d’honneur Playlist {playlist_id} · NO-STATS",
+            "playlist": None,
+            "playlist_id": playlist_id,
             "player_count": player_count,
             "platform": platform,
         }
@@ -2900,6 +2932,9 @@ DEFAULT_CONFIG: Dict[str, Any] = {
     "statsapi_port": DEFAULT_STATSAPI_PORT,
     "selected_playlist": "",
     "main_overlay_enabled": True,
+    # Beta 8.48 : masque temporairement les sorties stream en privée/tournoi
+    # ou lorsque Rocket League n’est plus la fenêtre active.
+    "auto_stream_visibility_guard": True,
     "overlay_exclusive_mode": True,
     "count_casual_results": True,
     "count_casual_results_default_initialized_beta_8_21": True,
@@ -3191,6 +3226,7 @@ UI_TRANSLATIONS_EN.update({
     "Lien OBS de la source Showmatch. Les réglages rapides sont maintenant dans l’accueil.": "OBS link for the Showmatch source. Quick settings are now on the home page.",
     "Copier URL": "Copy URL",
     "Options actives": "Active options",
+    "Masquage auto Stream : privée/tournoi + hors Rocket League": "Auto Stream hide: private/tournament + outside Rocket League",
     "Mode exclusif": "Exclusive mode",
     "Sauvegarder la session actuelle": "Save current session",
     "Nom / nouveau nom": "Name / new name",
@@ -11636,6 +11672,11 @@ class RLOverlayStudio(QMainWindow):
         self._rls_mmr_last_error = ""
         self._rls_mmr_last_error_at = 0.0
         self._rls_mmr_last_success_at = 0.0
+        # Beta 8.48 : cache de la garde de visibilité Stream.
+        self._stream_guard_rl_running = False
+        self._stream_guard_rl_foreground = False
+        self._stream_guard_last_signature = None
+        self._stream_guard_last_reason = "rocket_league_closed"
         self._rls_mmr_match_status_sequence = 0
         self._rls_mmr_match_status_active = False
         self._rls_mmr_match_status_finalized = False
@@ -11841,6 +11882,14 @@ class RLOverlayStudio(QMainWindow):
         self.game_overlay_sync_timer.timeout.connect(lambda: self._safe_call(self._sync_game_overlay_to_rocket_league, "Synchro overlay jeu"))
         # Beta 7.61 : cadence allégée pour éviter les micro-freezes UI/overlays.
         self.game_overlay_sync_timer.start(850)
+
+        # Beta 8.48 : surveille les transitions focus/process/mode pour OBS/TikTok.
+        self.stream_visibility_guard_timer = QTimer(self)
+        self.stream_visibility_guard_timer.timeout.connect(
+            lambda: self._safe_call(self._sync_stream_visibility_guard, "Visibilité auto OBS/TikTok")
+        )
+        self.stream_visibility_guard_timer.start(500)
+        QTimer.singleShot(180, lambda: self._safe_call(self._sync_stream_visibility_guard, "Visibilité auto OBS/TikTok"))
 
         # Beta 6.78 : polling manette léger pour Xbox/XInput et PS5/DirectInput.
         # L'overlay MMR joueurs s'affiche uniquement tant que la touche choisie est maintenue,
@@ -13177,6 +13226,81 @@ if __name__ == "__main__":
         self._last_rl_window_rect_check_at = now
         self._last_rl_window_rect = get_rocket_league_window_rect(require_foreground=require_foreground)
         return self._last_rl_window_rect
+
+    def _stream_visibility_guard_enabled(self) -> bool:
+        return bool(self.config.get("auto_stream_visibility_guard", True))
+
+    def _stream_visibility_guard_context(self) -> Dict[str, Any]:
+        """État consolidé des sorties OBS/TikTok sans exposer de service privé."""
+        enabled = self._stream_visibility_guard_enabled()
+        running = bool(getattr(self, "_stream_guard_rl_running", False))
+        foreground = bool(getattr(self, "_stream_guard_rl_foreground", False))
+        with self.lock:
+            private_match = bool(getattr(self.state, "current_match_private", False))
+            tournament_match = bool(getattr(self.state, "current_match_tournament", False))
+        restricted_mode = bool(private_match or tournament_match)
+        hidden = bool(enabled and (restricted_mode or not running or not foreground))
+        if not enabled:
+            reason = "disabled"
+        elif private_match:
+            reason = "private"
+        elif tournament_match:
+            reason = "tournament"
+        elif not running:
+            reason = "rocket_league_closed"
+        elif not foreground:
+            reason = "rocket_league_not_foreground"
+        else:
+            reason = "visible"
+        return {
+            "enabled": enabled,
+            "rocket_league_running": running,
+            "rocket_league_foreground": foreground,
+            "private": private_match,
+            "tournament": tournament_match,
+            "restricted_mode": restricted_mode,
+            "browser_hidden": hidden,
+            "reason": reason,
+        }
+
+    def _sync_stream_visibility_guard(self) -> None:
+        """Masque/réaffiche temporairement les sorties stream selon le contexte jeu."""
+        try:
+            running = bool(self._is_rocket_league_running_cached())
+            foreground = bool(running and get_rocket_league_window_rect(require_foreground=True))
+        except Exception:
+            running = False
+            foreground = False
+        self._stream_guard_rl_running = running
+        self._stream_guard_rl_foreground = foreground
+        ctx = self._stream_visibility_guard_context()
+        signature = (
+            bool(ctx.get("enabled")),
+            bool(ctx.get("rocket_league_running")),
+            bool(ctx.get("rocket_league_foreground")),
+            bool(ctx.get("private")),
+            bool(ctx.get("tournament")),
+            bool(ctx.get("browser_hidden")),
+        )
+        if getattr(self, "_stream_guard_last_signature", None) == signature:
+            return
+        self._stream_guard_last_signature = signature
+        self._stream_guard_last_reason = str(ctx.get("reason") or "")
+        try:
+            self._update_game_overlay_windows(self.get_public_state())
+            self._sync_player_mmr_direct_overlay_to_rocket_league_window()
+        except Exception:
+            pass
+        try:
+            self._publish_state(count_revision=False)
+        except Exception:
+            pass
+
+    def set_auto_stream_visibility_guard(self, enabled: bool) -> None:
+        self.config.data["auto_stream_visibility_guard"] = bool(enabled)
+        self.config.save()
+        self._stream_guard_last_signature = None
+        self._sync_stream_visibility_guard()
 
     def _sync_game_overlay_to_rocket_league(self) -> None:
         try:
@@ -15656,11 +15780,20 @@ if __name__ == "__main__":
             # d'opacité, puis revient progressivement à 100% dès MatchEnded
             # ou MatchDestroyed. On ne modifie plus cfg[visible_key], donc le
             # bouton reste cohérent et l'utilisateur n'a pas à réafficher l'overlay.
+            auto_mode_dimmed = bool(
+                self._stream_visibility_guard_enabled()
+                and (bool(state.get("current_match_private", False)) or bool(state.get("current_match_tournament", False)))
+            )
             soft_dimmed = bool(
                 should_be_visible
-                and bool(cfg.get("hide_on_playlist_lock", False))
-                and bool(state.get("current_match_playlist_locked", False))
-                and not bool(state.get("current_match_waiting_destroy", False))
+                and (
+                    auto_mode_dimmed
+                    or (
+                        bool(cfg.get("hide_on_playlist_lock", False))
+                        and bool(state.get("current_match_playlist_locked", False))
+                        and not bool(state.get("current_match_waiting_destroy", False))
+                    )
+                )
             )
 
             # Verrouillé ou déverrouillé : l'overlay InGame existe uniquement
@@ -16720,36 +16853,45 @@ if __name__ == "__main__":
 
         # Beta 6.82 : les options MMR joueurs restent dans leur bloc dédié
         # uniquement. On ne les duplique plus visuellement dans Options actives.
+        self.auto_stream_visibility_guard_cb = QCheckBox("Masquage auto Stream : privée/tournoi + hors Rocket League")
+        self.auto_stream_visibility_guard_cb.setChecked(bool(self.config.get("auto_stream_visibility_guard", True)))
+        self.auto_stream_visibility_guard_cb.setToolTip(
+            "En privée/tournoi, InGame passe à 20 % et les Browser Sources sont masquées. "
+            "OBS/TikTok se masque aussi hors focus Rocket League puis revient automatiquement."
+        )
+        self.auto_stream_visibility_guard_cb.toggled.connect(self.set_auto_stream_visibility_guard)
+        opts.addWidget(self.auto_stream_visibility_guard_cb, 0, 0, 1, 2)
+
         self.overlay_exclusive_cb = QCheckBox("Mode exclusif : masquer automatiquement l’autre overlay")
         self.overlay_exclusive_cb.setChecked(bool(self.config.get("overlay_exclusive_mode", True)))
         self.overlay_exclusive_cb.setToolTip("Activé : afficher Showmatch masque Win/Lose, et afficher Win/Lose masque Showmatch.")
         self.overlay_exclusive_cb.toggled.connect(self.set_overlay_exclusive_mode)
-        opts.addWidget(self.overlay_exclusive_cb, 0, 0, 1, 2)
+        opts.addWidget(self.overlay_exclusive_cb, 1, 0, 1, 2)
 
         self.hide_ingame_on_playlist_lock_cb = QCheckBox("Masquer l’overlay au début de game")
         self.hide_ingame_on_playlist_lock_cb.setChecked(bool(self._game_overlay_config().get("hide_on_playlist_lock", False)))
         self.hide_ingame_on_playlist_lock_cb.setToolTip("Désactivé par défaut : si activé, l’overlay direct jeu passe à 20% d’opacité dès que le mode ranked est verrouillé, puis revient progressivement à 100% en fin de match.")
         self.hide_ingame_on_playlist_lock_cb.toggled.connect(self.set_hide_game_overlay_on_playlist_lock)
-        opts.addWidget(self.hide_ingame_on_playlist_lock_cb, 1, 0, 1, 2)
+        opts.addWidget(self.hide_ingame_on_playlist_lock_cb, 2, 0, 1, 2)
 
         self.count_casual_results_cb = QCheckBox("Compter les Win/Lose en Casual")
         self.count_casual_results_cb.setChecked(bool(self.config.get("count_casual_results", True)))
         self.count_casual_results_cb.setToolTip("Activé par défaut : les matchs Casual détectés via Launch comptent aussi les Win/Lose sur l’overlay principal.")
         self.count_casual_results_cb.toggled.connect(self.set_count_casual_results)
-        opts.addWidget(self.count_casual_results_cb, 2, 0, 1, 2)
+        opts.addWidget(self.count_casual_results_cb, 3, 0, 1, 2)
 
         self.streamer_anonymize_players_mmr_cb = QCheckBox("Anonymiser Streamer (MMR autres joueurs)")
         self.streamer_anonymize_players_mmr_cb.setChecked(bool(self.config.get("streamer_anonymize_players_mmr", False)))
         self.streamer_anonymize_players_mmr_cb.setToolTip("Masque les pseudos des autres joueurs dans l'overlay MMR autres joueurs. Le joueur principal reste visible.")
         self.streamer_anonymize_players_mmr_cb.toggled.connect(self.set_streamer_anonymize_players_mmr)
-        opts.addWidget(self.streamer_anonymize_players_mmr_cb, 3, 0, 1, 2)
+        opts.addWidget(self.streamer_anonymize_players_mmr_cb, 4, 0, 1, 2)
 
         self.players_mmr_show_encounter_count_cb = QCheckBox(self._translate_text_value("Nombre de rencontre des autres joueurs 👑"))
         self.players_mmr_show_encounter_count_cb.setChecked(bool(self.config.get("players_mmr_show_encounter_count", True)))
         self.players_mmr_show_encounter_count_cb.setToolTip(self._translate_text_value("Affiche un œil orange avec le nombre de fois où tu as rencontré chaque joueur adverse."))
         self.players_mmr_show_encounter_count_cb.toggled.connect(self.set_players_mmr_show_encounter_count)
         self._apply_premium_text_glow(self.players_mmr_show_encounter_count_cb, self._is_discord_premium_verified())
-        opts.addWidget(self.players_mmr_show_encounter_count_cb, 4, 0, 1, 2)
+        opts.addWidget(self.players_mmr_show_encounter_count_cb, 5, 0, 1, 2)
 
         self.ingame_quick_menu_enabled_cb = QCheckBox("Afficher le menu dock rétractable en jeu")
         self.ingame_quick_menu_enabled_cb.setChecked(bool(self.config.get("ingame_quick_menu_enabled", False)))
@@ -16757,13 +16899,13 @@ if __name__ == "__main__":
             "Activé : affiche le bouton Menu rétractable sur le bord droit de l’écran Rocket League."
         )
         self.ingame_quick_menu_enabled_cb.toggled.connect(self.set_ingame_quick_menu_enabled)
-        opts.addWidget(self.ingame_quick_menu_enabled_cb, 5, 0, 1, 2)
+        opts.addWidget(self.ingame_quick_menu_enabled_cb, 6, 0, 1, 2)
 
         self.windows_startup_cb = QCheckBox("Lancer l’application au démarrage du PC")
         self.windows_startup_cb.setChecked(bool(self.config.get("windows_startup_enabled", True)))
         self.windows_startup_cb.setToolTip("Installe une entrée Windows stable via HKCU Run + tâche planifiée. Ne demande pas les droits admin.")
         self.windows_startup_cb.toggled.connect(self.set_windows_startup_enabled)
-        opts.addWidget(self.windows_startup_cb, 6, 0, 1, 2)
+        opts.addWidget(self.windows_startup_cb, 7, 0, 1, 2)
 
         options.layout().addLayout(opts)
 
@@ -17236,6 +17378,21 @@ if __name__ == "__main__":
             public["ws_port"] = WS_PORT
             public["ws_clients"] = len(self.hub.ws_clients)
             public["rls_mmr_api_status"] = self._rls_mmr_api_status()
+            guard = self._stream_visibility_guard_context()
+            public["auto_stream_visibility_guard"] = bool(guard.get("enabled"))
+            public["rocket_league_running"] = bool(guard.get("rocket_league_running"))
+            public["rocket_league_foreground"] = bool(guard.get("rocket_league_foreground"))
+            public["stream_mode_restricted"] = bool(guard.get("restricted_mode"))
+            public["stream_overlays_auto_hidden"] = bool(guard.get("browser_hidden"))
+            public["stream_overlays_auto_hidden_reason"] = str(guard.get("reason") or "")
+            if bool(guard.get("browser_hidden")):
+                public["main_overlay_visible"] = False
+                sm = public.get("showmatch")
+                if isinstance(sm, dict):
+                    sm["visible"] = False
+                pm = public.get("players_mmr_overlay")
+                if isinstance(pm, dict):
+                    pm["browser_visible"] = False
             return public
 
     def _publish_state(self, count_revision: bool = True) -> None:
@@ -18059,9 +18216,11 @@ if __name__ == "__main__":
             ranked_match = bool(self.state.current_match_ranked or self.state.current_match_had_ranked_context)
             replay_match = bool(getattr(self.state, "current_match_replay", False))
             tournament_match = bool(getattr(self.state, "current_match_tournament", False))
+            honor_duel_match = bool(getattr(self.state, "current_match_honor_duel", False))
             no_stats_match = bool(
                 replay_match
                 or tournament_match
+                or honor_duel_match
                 or (
                     (self.state.current_match_no_stats or self.state.training_active or self.state.current_match_private)
                     and not self.state.current_match_had_ranked_context
@@ -18216,9 +18375,11 @@ if __name__ == "__main__":
             ranked_match = bool(self.state.current_match_ranked or self.state.current_match_had_ranked_context)
             replay_match = bool(getattr(self.state, "current_match_replay", False))
             tournament_match = bool(getattr(self.state, "current_match_tournament", False))
+            honor_duel_match = bool(getattr(self.state, "current_match_honor_duel", False))
             no_stats_match = bool(
                 replay_match
                 or tournament_match
+                or honor_duel_match
                 or (
                     (self.state.current_match_no_stats or self.state.training_active or self.state.current_match_private)
                     and not self.state.current_match_had_ranked_context
@@ -18330,6 +18491,7 @@ if __name__ == "__main__":
             self.state.current_match_private = False
             self.state.current_match_casual = False
             self.state.current_match_tournament = False
+            self.state.current_match_honor_duel = False
             self.state.current_match_replay = False
             self.state.current_match_no_stats = False
             self.state.current_match_no_stats_reason = ""
@@ -19138,7 +19300,7 @@ if __name__ == "__main__":
         with self.lock:
             if result not in ("win", "loss"):
                 return
-            if auto and bool(getattr(self.state, "current_match_replay", False) or getattr(self.state, "current_match_tournament", False)):
+            if auto and bool(getattr(self.state, "current_match_replay", False) or getattr(self.state, "current_match_tournament", False) or getattr(self.state, "current_match_honor_duel", False)):
                 reason = "Replay" if bool(getattr(self.state, "current_match_replay", False)) else "Tournoi Playlist 22/34"
                 self._log(f"Résultat automatique ignoré : {reason} en cours")
                 return
@@ -19349,6 +19511,7 @@ if __name__ == "__main__":
         self.state.current_match_private = False
         self.state.current_match_casual = False
         self.state.current_match_tournament = False
+        self.state.current_match_honor_duel = False
         self.state.current_match_replay = False
         self.state.current_match_no_stats = False
         self.state.current_match_no_stats_reason = ""

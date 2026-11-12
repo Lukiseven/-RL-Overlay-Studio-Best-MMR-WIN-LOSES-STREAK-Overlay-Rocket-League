@@ -1,12 +1,13 @@
 {
-  "source_version": "Beta 8.46",
+  "source_version": "Beta 8.49",
   "redacted_classes": [
     "PlayerMMROverlayWindow",
     "TrackerState"
   ],
-  "redacted_function_count": 170,
+  "redacted_function_count": 176,
   "redacted_functions": [
     "_abandon_rls_mmr_match_status_tracking_locked",
+    "_activate_local_mmr_fallback",
     "_apply_player_mmr_overlay_data",
     "_auto_detect_playlist_and_mmr",
     "_begin_rls_mmr_match_status_tracking",
@@ -19,6 +20,7 @@
     "_coerce_private_playlist6_to_mmr_playlist",
     "_collect_player_mmr_overlay_candidates",
     "_consider_match_playlist_lock_locked",
+    "_deactivate_local_mmr_fallback_locked",
     "_detect_recent_season_blank_from_rls_data",
     "_detect_tracker_identity_locked",
     "_dict_has_playlist_mmr",
@@ -57,6 +59,7 @@
     "_iter_tracker_values",
     "_lock_freeplay_session_identity_from_payload_locked",
     "_manual_rls_test_identity_locked",
+    "_mark_mmr_total_failure",
     "_mark_rls_api_error_for_dashboard",
     "_match_rls_batch_player_payload",
     "_maybe_refresh_player_mmr_overlay_cache_from_event",
@@ -64,6 +67,7 @@
     "_maybe_request_rls_after_playlist_lock",
     "_merge_main_top_rank_from_players_batch",
     "_merge_player_mmr_overlay_players",
+    "_mmr_from_party_leader_mu",
     "_normalize_rls_batch_player_ref",
     "_normalize_rls_platform_token",
     "_normalize_rls_saved_endpoint_locked",
@@ -144,6 +148,7 @@
     "_sync_tracker_inputs_from_config",
     "_toggle_player_mmr_overlay_from_input",
     "_tracker_worker",
+    "_try_local_mmr_fallback",
     "_try_save_rls_identity_from_payload_locked",
     "_update_manual_rls_test_status_ui",
     "_update_players_mmr_browser_toggle_ui",
@@ -165,6 +170,7 @@
     "process_api_event",
     "rank_division_from_mmr",
     "rank_from_mmr",
+    "read_latest_launch_local_mmr_context",
     "read_latest_launch_playlist_context",
     "set_hide_game_overlay_on_playlist_lock",
     "set_manual_rls_test_enabled",
@@ -177,7 +183,7 @@
     "split_rls_platform_and_primary_id",
     "tracker_platform_from_primary_id"
   ],
-  "redacted_global_count": 52,
+  "redacted_global_count": 54,
   "redacted_globals": [
     "APP_ICON_ICO",
     "APP_ICON_PNG",
@@ -187,6 +193,7 @@
     "COPY_ICON_PNG",
     "DESIGN_FONT_DOWNLOADS",
     "DISCONNECTED_ICON_SVG",
+    "DISCORD_ADDITIONAL_PREMIUM_ROLES",
     "DISCORD_BOT_TOKEN",
     "DISCORD_CONNECT_LINK_ICON_SVG",
     "DISCORD_GUILD_ID",
@@ -205,6 +212,7 @@
     "LANDING_HTML",
     "LANG_EN_ICON_SVG",
     "LANG_FR_ICON_SVG",
+    "LOCAL_MMR_FALLBACK_MAX_AGE_SECONDS",
     "MAIN_MODE_DIVISION_FLOORS",
     "MAIN_MODE_RANK_FLOORS",
     "MMR_RANKUP_POPUP_DURATION_SECONDS",
@@ -232,5 +240,10 @@
     "TRACKER_PLAYLIST_LABELS",
     "_EXTRA_RANK_ORDER"
   ],
-  "omitted_original_asset_files": 59
+  "omitted_original_asset_files": 59,
+  "notes": [
+    "Beta 8.47 local MMR fallback acquisition/conversion remains proprietary and redacted.",
+    "Beta 8.48 stream visibility behavior is exposed only where it does not reveal protected service internals.",
+    "Beta 8.49 Honor Duel PlaylistID 53 NO-STATS behavior is represented in the public audit snapshot."
+  ]
 }

@@ -1,4 +1,4 @@
-# Public Audit Scope — RL Overlay Studio Beta 8.46
+# Public Audit Scope — RL Overlay Studio Beta 8.49
 
 This repository publishes a sanitized security-review copy of RL Overlay Studio.
 
@@ -8,7 +8,7 @@ The goal is to let users inspect the application's non-sensitive behavior, depen
 
 ## Included
 
-- Main Python application structure derived from Beta 8.46.
+- Main Python application structure derived from Beta 8.49.
 - PyQt6 window/control flow outside protected modules.
 - Local StatsAPI client structure.
 - Local HTTP/WebSocket infrastructure where it does not disclose protected backend logic.
@@ -21,6 +21,7 @@ The goal is to let users inspect the application's non-sensitive behavior, depen
 ## Redacted / omitted
 
 - MMR retrieval and private backend client implementation.
+- Local Launch.log fallback acquisition/conversion logic introduced in Beta 8.47.
 - Ranking/MMR/division thresholds and lookup tables.
 - Private identity-resolution logic used for MMR requests.
 - Production API keys, tokens, client secrets, Discord IDs and private endpoints.

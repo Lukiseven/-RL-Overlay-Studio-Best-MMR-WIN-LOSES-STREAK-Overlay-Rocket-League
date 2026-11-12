@@ -1,29 +1,28 @@
-# Release Verification — Beta 8.46
+# Release Verification — Beta 8.49
 
-Use SHA-256 to verify the release archive and executable.
+This repository contains a **sanitized public audit snapshot**, not the complete production build.
 
-## Official hashes used for this audit package
+## Binary / release verification
 
-```text
-Overlay_Studio_DoublePC_Beta_8.46_.zip
-SHA256: fcced4298a0952b109b4e657c82aa1c79c911f9875a43cc7974e862731adb4f6
+Use the SHA-256 values shipped with the matching official GitHub Release assets for the distributed ZIP/EXE.
+Do **not** reuse Beta 8.46 hashes for Beta 8.49.
 
-RL-Overlay-Studio.exe
-SHA256: c7aaea996bbfafb9fe1c2aa11e2f8cd75a8a4557c7c847cc1dfc2418fb9f7e87
-```
+## Public source verification
 
-## Windows PowerShell
+The integrity of the files published in this repository is recorded in `SOURCE_MANIFEST.sha256`.
+
+### Windows PowerShell
 
 ```powershell
-Get-FileHash .\Overlay_Studio_DoublePC_Beta_8.46_.zip -Algorithm SHA256
-Get-FileHash .\RL-Overlay-Studio.exe -Algorithm SHA256
+Get-FileHash .\path\to\file -Algorithm SHA256
 ```
 
-## macOS / Linux
+### macOS / Linux
 
 ```bash
-shasum -a 256 Overlay_Studio_DoublePC_Beta_8.46_.zip
-sha256sum RL-Overlay-Studio.exe
+shasum -a 256 path/to/file
+# or
+sha256sum path/to/file
 ```
 
-A matching hash verifies file integrity/identity. It does not by itself establish that a program is safe; source review, code signing and security scanning are complementary controls.
+A matching hash verifies file identity/integrity. It does not by itself establish that software is safe; source review and security scanning remain complementary controls.

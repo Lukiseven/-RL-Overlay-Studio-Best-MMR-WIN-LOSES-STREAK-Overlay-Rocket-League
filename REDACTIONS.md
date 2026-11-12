@@ -1,12 +1,12 @@
 # Redactions
 
-The public audit copy is generated from the Beta 8.46 source and then sanitized before publication.
+The public audit copy is generated from the Beta 8.49 source and then sanitized before publication.
 
 The sanitization removes or replaces:
 
 1. Production credentials, tokens and private service endpoints.
 2. Long internal account/server/role identifiers.
-3. MMR/rank acquisition logic and backend request functions.
+3. MMR/rank acquisition logic, local Launch.log fallback acquisition/conversion, and backend request functions.
 4. Rank/MMR/division lookup tables and thresholds.
 5. Player identity-resolution code used by the private MMR pipeline.
 6. Embedded overlay HTML/CSS/JS templates.
